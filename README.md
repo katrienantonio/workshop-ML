@@ -6,12 +6,10 @@ by Katrien Antonio, Jonas Crevecoeur and Roel Henckaerts
 Course materials for the *Machine Learning in R* course in February 2020
 in The Hague.
 
-📆 February 11, 12 and 13, 2020 <br> 🕚 From 9 am to 4.30 pm <br> 📌
+📆 February 11, 12 and 13, 2020 <br> ⏲ From 9 am to 4.30 pm <br> 📍
 Nationale Nederlanden, The Hague
 
 Course materials will be posted in the week before the workshop.
-
-<hr style="height:1px">
 
 ### Overview
 
@@ -39,8 +37,6 @@ acquired the fundamental insights to explore some other methods on your
 own.
 
 </p>
-
-<hr style="height:1px">
 
 ### Schedule
 
@@ -81,9 +77,8 @@ Topics include:
   - building deep learning models with TensorFlow and Keras via the
     `keras` library in R
   - a variety of deep learning algorithms (e.g. CNNs and ANNs)
-  - putting it all together: case studies.
-
-<hr style="height:1px">
+  - putting it all together: case studies
+  - wrap up.
 
 ### Prework
 
@@ -106,8 +101,6 @@ topics.
 Familiarity with statistical or machine learning methods is *not*
 required. The workshop gradually builds up these concepts, with an
 emphasis on hands-on demonstrations and exercises.
-
-<hr style="height:1px">
 
 ### Software Requirements
 
@@ -179,19 +172,15 @@ devtools::install_github("rstudio/keras")
 library(keras)
 ```
 
-<hr style="height:1px">
-
 ### Course material
 
 Lecture sheets will become available a week before the workshop (in pdf
 and HTML format). R scripts, notebooks and the data sets used throughout
 the course will be at your disposal.
 
-<hr style="height:1px">
-
 ### Instructors
 
-<img src="img/Katrien.jpg" alt="Drawing" style="height: 200px;"/>
+<img src="img/Katrien.jpg" alt="Drawing" style="height: 20px;"/>
 
 <p align="justify">
 
@@ -228,8 +217,6 @@ of the Research Foundation - Flanders (FWO, PhD fellowship strategic
 basic research).
 
 </p>
-
-<hr style="height:1px">
 
 Happy learning\!
 

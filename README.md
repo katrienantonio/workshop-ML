@@ -30,15 +30,11 @@ predictions.
 
 </p>
 
-<p style="text-align:justify">
-
-Leaving this workshop, you should have a firm grasp of the working
+<div style="text-align:justify">Leaving this workshop, you should have a firm grasp of the working
 principles of a variety of machine learning methods and be able to
 explore their use in practical settings. Moreover, you should have
 acquired the fundamental insights to explore some other methods on your
-own.
-
-</p>
+own.</div>
 
 <hr style="height:1px;">
 

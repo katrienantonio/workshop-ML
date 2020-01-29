@@ -31,7 +31,7 @@ Course materials for the *Machine Learning in R* course in February 2020 in The 
 
 Course materials will be posted in the week before the workshop. 
 
-<hr style="height:1px;">
+<hr style="height:0.5px;">
 
 ### Overview
 

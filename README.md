@@ -17,16 +17,7 @@ Course materials will be posted in the week before the workshop.
 
 <p style="text-align:justify;">
 
-This three-day workshop introduces the *essential concepts of building
-machine learning models with R*. Throughout the workshop you will gain
-insights in the foundations of machine learning methods, including
-*resampling methods*, *data preprocessing steps* and the *tuning of
-parameters*. You will cover a variety of *statistical and machine
-learning methods*, ranging from GLMs, over tree-based machine learning
-methods to neural networks. You will acquire insights in the foundations
-of these methods, learn how to set-up the model building process, and
-focus on building a good understanding of the resulting model output and
-predictions.
+This three-day workshop introduces the *essential concepts of building machine learning models with R*. Throughout the workshop you will gain insights in the foundations of machine learning methods, including *resampling methods*, *data preprocessing steps* and the *tuning of parameters*. You will cover a variety of *statistical and machine learning methods*, ranging from GLMs, over tree-based machine learning methods to neural networks. You will acquire insights in the foundations of these methods, learn how to set-up the model building process, and focus on building a good understanding of the resulting model output and predictions.
 
 </p>
 

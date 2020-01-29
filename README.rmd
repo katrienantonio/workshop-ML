@@ -125,7 +125,7 @@ If the above instructions do **not** work, you can **alternatively** proceed as 
 
 * download Anaconda at <https://www.anaconda.com/distribution/#download-section>, select the version for Python 3.7 and make sure to pick the right (top of the page: select Windows, macOS or Linux)
 
-* install Anaconda. This straightforward after launching the installer, but (in case you are in doubt) some instructions are at <https://docs.anaconda.com/anaconda/install/windows/>
+* install Anaconda. This is straightforward after launching the installer, but (in case you are in doubt) some instructions are at <https://docs.anaconda.com/anaconda/install/windows/>
 
 * open an Anaconda Prompt (or terminal for macOS) (e.g. via Start in Windows and search for Anaconda Prompt) and install keras and tensorflow with the following instructions
 
@@ -134,7 +134,7 @@ pip install keras
 pip install tensorflow
 ```
 
-* install `keras` in R
+* install `keras` in R and load the library
 ```{r eval=FALSE}
 install.packages("devtools")
 devtools::install_github("rstudio/keras")

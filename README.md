@@ -6,7 +6,7 @@ by Katrien Antonio, Jonas Crevecoeur and Roel Henckaerts
 Course materials for the *Machine Learning in R* course in February 2020
 in The Hague.
 
-📆 February 11, 12 and 13, 2020 <br> 🕝 From 9 am to 4.30 pm <br> 📍
+📆 February 11, 12 and 13, 2020 <br> 🕒 From 9 am to 4.30 pm <br> 📍
 Nationale Nederlanden, The Hague
 
 Course materials will be posted in the week before the workshop.
@@ -155,7 +155,7 @@ proceed as follows
     the version for Python 3.7 and make sure to pick the right (top of
     the page: select Windows, macOS or Linux)
 
-  - install Anaconda. This straightforward after launching the
+  - install Anaconda. This is straightforward after launching the
     installer, but (in case you are in doubt) some instructions are at
     <https://docs.anaconda.com/anaconda/install/windows/>
 
@@ -170,7 +170,7 @@ pip install keras
 pip install tensorflow
 ```
 
-  - install `keras` in R
+  - install `keras` in R and load the library
 
 <!-- end list -->
 

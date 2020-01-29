@@ -30,7 +30,7 @@ predictions.
 
 </p>
 
-<p align="justify">
+<p style="text-align:justify">
 
 Leaving this workshop, you should have a firm grasp of the working
 principles of a variety of machine learning methods and be able to

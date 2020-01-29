@@ -6,7 +6,7 @@ by Katrien Antonio, Jonas Crevecoeur and Roel Henckaerts
 Course materials for the *Machine Learning in R* course in February 2020
 in The Hague.
 
-📆 February 11, 12 and 13, 2020 <br> ⏲ From 9 am to 4.30 pm <br> 📍
+📆 February 11, 12 and 13, 2020 <br> 🕜 From 9 am to 4.30 pm <br> 📌
 Nationale Nederlanden, The Hague
 
 Course materials will be posted in the week before the workshop.
@@ -180,7 +180,7 @@ the course will be at your disposal.
 
 ### Instructors
 
-<img src="img/Katrien.jpg" alt="Drawing" style="height: 20px;"/>
+<img src="img/Katrien.jpg" width="100"/>
 
 <p align="justify">
 

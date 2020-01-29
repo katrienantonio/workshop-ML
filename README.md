@@ -15,7 +15,7 @@ Course materials will be posted in the week before the workshop.
 
 ### Overview
 
-<p text-align="justify">
+<p style="text-align:justify;">
 
 This three-day workshop introduces the *essential concepts of building
 machine learning models with R*. Throughout the workshop you will gain

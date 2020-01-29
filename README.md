@@ -6,14 +6,16 @@ by Katrien Antonio, Jonas Crevecoeur and Roel Henckaerts
 Course materials for the *Machine Learning in R* course in February 2020
 in The Hague.
 
-📆 February 11, 12 and 13, 2020 <br> 🕜 From 9 am to 4.30 pm <br> 📌
+📆 February 11, 12 and 13, 2020 <br> 🕔 From 9 am to 4.30 pm <br> 📍
 Nationale Nederlanden, The Hague
 
 Course materials will be posted in the week before the workshop.
 
+<hr style="height:1px;">
+
 ### Overview
 
-<p align="justify">
+<p text-align="justify">
 
 This three-day workshop introduces the *essential concepts of building
 machine learning models with R*. Throughout the workshop you will gain
@@ -37,6 +39,8 @@ acquired the fundamental insights to explore some other methods on your
 own.
 
 </p>
+
+<hr style="height:1px;">
 
 ### Schedule
 
@@ -80,6 +84,8 @@ Topics include:
   - putting it all together: case studies
   - wrap up.
 
+<hr style="height:1px;">
+
 ### Prework
 
 <p align="justify">
@@ -101,6 +107,8 @@ topics.
 Familiarity with statistical or machine learning methods is *not*
 required. The workshop gradually builds up these concepts, with an
 emphasis on hands-on demonstrations and exercises.
+
+<hr style="height:1px;">
 
 ### Software Requirements
 
@@ -172,15 +180,19 @@ devtools::install_github("rstudio/keras")
 library(keras)
 ```
 
+<hr style="height:1px;">
+
 ### Course material
 
 Lecture sheets will become available a week before the workshop (in pdf
 and HTML format). R scripts, notebooks and the data sets used throughout
 the course will be at your disposal.
 
+<hr style="height:1px;">
+
 ### Instructors
 
-<img src="img/Katrien.jpg" width="100"/>
+<img src="img/Katrien.jpg" width="120"/>
 
 <p align="justify">
 
@@ -190,7 +202,7 @@ University of Amsterdam. She teaches courses on data science for
 insurance, life and non-life insurance mathematics and loss models.
 Research-wise Katrien puts focus on pricing, reserving and fraud
 analytics, as well as mortality dynamics. Katrien will teach Day 1 of
-thw workshop, and serve as TA on Day 2 and 3.
+the workshop, and serve as TA on Day 2 and 3.
 
 </p>
 
@@ -217,6 +229,8 @@ of the Research Foundation - Flanders (FWO, PhD fellowship strategic
 basic research).
 
 </p>
+
+<hr style="height:1px;">
 
 Happy learning\!
 

@@ -180,7 +180,7 @@ Installing keras requires a working version of Anaconda. To install Anaconda:
     installer, but (in case you are in doubt) some instructions are at
     <https://docs.anaconda.com/anaconda/install/windows/>
 
-To install keras we recommend the installation instructions on
+For installing keras we recommend the installation instructions on
 <https://keras.rstudio.com/>.
 
 ``` r

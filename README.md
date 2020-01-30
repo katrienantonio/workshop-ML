@@ -6,7 +6,7 @@ by Katrien Antonio, Jonas Crevecoeur and Roel Henckaerts
 Course materials for the *Machine Learning in R* course in February 2020
 in The Hague.
 
-📆 February 11, 12 and 13, 2020 <br> 🕗 From 9 am to 4.30 pm <br> 📍
+📆 February 11, 12 and 13, 2020 <br> 🕥 From 9 am to 4.30 pm <br> 📍
 Nationale Nederlanden, The Hague
 
 Course materials will be posted in the week before the workshop.
@@ -114,8 +114,13 @@ course material one day before the start of the workshop. You will need:
   - RStudio (
     <https://www.rstudio.com/products/rstudio/download/#download> )
 
-Run the following script in your R session to install the required
-packages
+You will now go through three steps: (1) installing packages, (2)
+installing h2o interface and (3) installing keras interface. The
+instructions are also stored as an R script in the
+[scripts](https://github.com/katrienantonio/workshop-ML/scripts) folder.
+
+**Step 1**: run the following script in your R session to install the
+required packages
 
 ``` r
 packages <- c("tidyverse", "here", "gridExtra", "AmesHousing", "caret", "rsample", "broom", "recipes", "mgcv", "glmnet", "evtree", "classInt", "rgdal", "RColorBrewer", "ggmap", "grid", "rpart", "rpart.plot", "rpart.utils", "vip", "pdp", "ipred", "ranger", "gbm", "xgboost", "gganimate", "transformr", "zeallot", "sp", "tmap", "partykit", "rattle", "sf", "leaflet", "devtools")
@@ -126,18 +131,18 @@ if(length(new_packages)) install.packages(new_packages)
 devtools::install_github("henckr/distRforest")
 library(distRforest) # from https://github.com/henckr/distRforest
 
-all_packages <- c("ggplot2", "dplyr", "tidyr", "purrr", "readr", "tibble", "lubridate", "here", "gridExtra", "AmesHousing", "caret", "rsample", "broom", "recipes", "mgcv", "glmnet", "evtree", "classInt", "rgdal", "RColorBrewer", "ggmap", "grid", "rpart", "RColorBrewer", "ggmap", "grid", "gridExtra", "rpart", "rpart.plot", "rpart.utils", "vip", "pdp", "ipred", "ranger", "gbm", "xgboost", "gganimate", "transformr", "zeallot", "sp", "tmap", "partykit", "rattle", "sf", "leaflet", "distRforest")
+all_packages <- c("ggplot2", "dplyr", "tidyr", "purrr", "readr", "tibble", "lubridate", "here", "gridExtra", "AmesHousing", "caret", "rsample", "broom", "recipes", "mgcv", "glmnet", "evtree", "classInt", "rgdal", "RColorBrewer", "ggmap", "grid", "rpart", "RColorBrewer", "ggmap", "grid", "gridExtra", "rpart", "rpart.plot", "rpart.utils", "vip", "pdp", "ipred", "ranger", "gbm", "xgboost", "gganimate", "transformr", "zeallot", "sp", "tmap", "partykit", "rattle", "sf", "leaflet", "devtools", "distRforest")
 
 if(sum(!(all_packages %in% installed.packages()[, "Package"]))) {
   stop("Not all required packages are installed!")
 } else {
-  message("Everything is set up correctly. You are ready for the workshop!")
+  message("Everything is set up correctly. Now go to the next steps (h2o and keras).")
 }
 ```
 
-On **Day 2** you will explore the R interface for the ‘H2O’ Scalable
-Machine Learning Platform. We recommend the following installation
-instructions, see
+**Step 2**: on **Day 2** you will explore the R interface for the ‘H2O’
+Scalable Machine Learning Platform. We recommend the following
+installation instructions, see
 <http://h2o-release.s3.amazonaws.com/h2o/rel-yu/1/index.html>
 
 ``` r
@@ -162,11 +167,12 @@ install.packages("h2o")
 library(h2o)
 ```
 
-On **Day 3** you will be working with the R interface to `keras`. We
-recommend the installation instructions on <https://keras.rstudio.com/>.
+**Step 3**: on **Day 3** you will be working with the R interface to
+`keras`. We recommend the installation instructions on
+<https://keras.rstudio.com/>.
 
 ``` r
-install.packages("devtools")
+# install.packages("devtools")
 devtools::install_github("rstudio/keras")
 library(keras)
 install_keras()

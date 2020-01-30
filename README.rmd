@@ -25,7 +25,7 @@ Course materials for the *Machine Learning in R* course in February 2020 in The 
 
 `r emo::ji("calendar")` February 11, 12 and 13, 2020
 <br>
-`r emo::ji("clock")` From 9 am to 4.30 pm
+`r emo::ji("clock")` From 9.30 am to 4.30 pm
 <br>
 `r emo::ji("location")` Nationale Nederlanden, The Hague
 
@@ -43,9 +43,9 @@ The detailed schedule follows in the week before the workshop.
 
 | Session | Duration      | Description | Material |
 |:-------:|-----------|-------------|------|
-| Day 1   | 6.5 hours | ...    | ... |
-| Day 2   | 6.5 hours | ... | ... |
-| Day 3   | 6.5 hours | ...         | ... |
+| Day 1   | 6 hours | ...    | ... |
+| Day 2   | 6 hours | ... | ... |
+| Day 3   | 6 hours | ...         | ... |
 
 ##### Day 1: Machine learning foundations, regression methods
 
@@ -93,7 +93,7 @@ You will now go through three steps: (1) installing packages, (2) installing h2o
 **Step 1**: run the following script in your R session to install the required packages
 
 ```{r packages, eval = FALSE}
-packages <- c("tidyverse", "here", "gridExtra", "AmesHousing", "caret", "rsample", "broom", "recipes", "mgcv", "glmnet", "evtree", "classInt", "rgdal", "RColorBrewer", "ggmap", "grid", "rpart", "rpart.plot", "rpart.utils", "vip", "pdp", "ipred", "ranger", "gbm", "xgboost", "gganimate", "transformr", "zeallot", "sp", "tmap", "partykit", "rattle", "sf", "leaflet", "devtools")
+packages <- c("tidyverse", "here", "gridExtra", "AmesHousing", "caret", "rsample", "broom", "recipes", "mgcv", "glmnet", "evtree", "classInt", "rgdal", "RColorBrewer", "ggmap", "grid", "rpart", "rpart.plot", "rpart.utils", "vip", "pdp", "ipred", "ranger", "gbm", "xgboost", "gganimate", "transformr", "zeallot", "sp", "tmap", "partykit", "rattle", "sf", "leaflet", "devtools", "Rtools")
 new_packages <- packages[!(packages %in% installed.packages()[,"Package"])]
 if(length(new_packages)) install.packages(new_packages)
 
@@ -101,7 +101,7 @@ if(length(new_packages)) install.packages(new_packages)
 devtools::install_github("henckr/distRforest")
 library(distRforest) # from https://github.com/henckr/distRforest
 
-all_packages <- c("ggplot2", "dplyr", "tidyr", "purrr", "readr", "tibble", "lubridate", "here", "gridExtra", "AmesHousing", "caret", "rsample", "broom", "recipes", "mgcv", "glmnet", "evtree", "classInt", "rgdal", "RColorBrewer", "ggmap", "grid", "rpart", "RColorBrewer", "ggmap", "grid", "gridExtra", "rpart", "rpart.plot", "rpart.utils", "vip", "pdp", "ipred", "ranger", "gbm", "xgboost", "gganimate", "transformr", "zeallot", "sp", "tmap", "partykit", "rattle", "sf", "leaflet", "devtools", "distRforest")
+all_packages <- c("ggplot2", "dplyr", "tidyr", "purrr", "readr", "tibble", "lubridate", "here", "gridExtra", "AmesHousing", "caret", "rsample", "broom", "recipes", "mgcv", "glmnet", "evtree", "classInt", "rgdal", "RColorBrewer", "ggmap", "grid", "rpart", "RColorBrewer", "ggmap", "grid", "gridExtra", "rpart", "rpart.plot", "rpart.utils", "vip", "pdp", "ipred", "ranger", "gbm", "xgboost", "gganimate", "transformr", "zeallot", "sp", "tmap", "partykit", "rattle", "sf", "leaflet", "devtools", "Rtools", "distRforest")
 
 if(sum(!(all_packages %in% installed.packages()[, "Package"]))) {
   stop("Not all required packages are installed!")

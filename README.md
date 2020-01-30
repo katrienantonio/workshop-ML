@@ -6,7 +6,7 @@ by Katrien Antonio, Jonas Crevecoeur and Roel Henckaerts
 Course materials for the *Machine Learning in R* course in February 2020
 in The Hague.
 
-📆 February 11, 12 and 13, 2020 <br> 🕖 From 9 am to 4.30 pm <br> 📍
+📆 February 11, 12 and 13, 2020 <br> 🕓 From 9.30 am to 4.30 pm <br> 📍
 Nationale Nederlanden, The Hague
 
 Course materials will be posted in the week before the workshop.
@@ -42,11 +42,11 @@ own.
 
 The detailed schedule follows in the week before the workshop.
 
-| Session | Duration  | Description | Material |
-| :-----: | --------- | ----------- | -------- |
-|  Day 1  | 6.5 hours | …           | …        |
-|  Day 2  | 6.5 hours | …           | …        |
-|  Day 3  | 6.5 hours | …           | …        |
+| Session | Duration | Description | Material |
+| :-----: | -------- | ----------- | -------- |
+|  Day 1  | 6 hours  | …           | …        |
+|  Day 2  | 6 hours  | …           | …        |
+|  Day 3  | 6 hours  | …           | …        |
 
 ##### Day 1: Machine learning foundations, regression methods
 
@@ -124,7 +124,7 @@ folder.
 required packages
 
 ``` r
-packages <- c("tidyverse", "here", "gridExtra", "AmesHousing", "caret", "rsample", "broom", "recipes", "mgcv", "glmnet", "evtree", "classInt", "rgdal", "RColorBrewer", "ggmap", "grid", "rpart", "rpart.plot", "rpart.utils", "vip", "pdp", "ipred", "ranger", "gbm", "xgboost", "gganimate", "transformr", "zeallot", "sp", "tmap", "partykit", "rattle", "sf", "leaflet", "devtools")
+packages <- c("tidyverse", "here", "gridExtra", "AmesHousing", "caret", "rsample", "broom", "recipes", "mgcv", "glmnet", "evtree", "classInt", "rgdal", "RColorBrewer", "ggmap", "grid", "rpart", "rpart.plot", "rpart.utils", "vip", "pdp", "ipred", "ranger", "gbm", "xgboost", "gganimate", "transformr", "zeallot", "sp", "tmap", "partykit", "rattle", "sf", "leaflet", "devtools", "Rtools")
 new_packages <- packages[!(packages %in% installed.packages()[,"Package"])]
 if(length(new_packages)) install.packages(new_packages)
 
@@ -132,7 +132,7 @@ if(length(new_packages)) install.packages(new_packages)
 devtools::install_github("henckr/distRforest")
 library(distRforest) # from https://github.com/henckr/distRforest
 
-all_packages <- c("ggplot2", "dplyr", "tidyr", "purrr", "readr", "tibble", "lubridate", "here", "gridExtra", "AmesHousing", "caret", "rsample", "broom", "recipes", "mgcv", "glmnet", "evtree", "classInt", "rgdal", "RColorBrewer", "ggmap", "grid", "rpart", "RColorBrewer", "ggmap", "grid", "gridExtra", "rpart", "rpart.plot", "rpart.utils", "vip", "pdp", "ipred", "ranger", "gbm", "xgboost", "gganimate", "transformr", "zeallot", "sp", "tmap", "partykit", "rattle", "sf", "leaflet", "devtools", "distRforest")
+all_packages <- c("ggplot2", "dplyr", "tidyr", "purrr", "readr", "tibble", "lubridate", "here", "gridExtra", "AmesHousing", "caret", "rsample", "broom", "recipes", "mgcv", "glmnet", "evtree", "classInt", "rgdal", "RColorBrewer", "ggmap", "grid", "rpart", "RColorBrewer", "ggmap", "grid", "gridExtra", "rpart", "rpart.plot", "rpart.utils", "vip", "pdp", "ipred", "ranger", "gbm", "xgboost", "gganimate", "transformr", "zeallot", "sp", "tmap", "partykit", "rattle", "sf", "leaflet", "devtools", "Rtools", "distRforest")
 
 if(sum(!(all_packages %in% installed.packages()[, "Package"]))) {
   stop("Not all required packages are installed!")

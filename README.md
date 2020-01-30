@@ -168,8 +168,19 @@ install.packages("h2o")
 library(h2o)
 ```
 
-**Step 3**: on **Day 3** you will be working with the R interface to
-`keras`. We recommend the installation instructions on
+**Step 3**: on **Day 3** you will be working with the R interface to `keras`. 
+
+Installing keras requires a working version of Anaconda. To install Anaconda:
+- download Anaconda at
+    <https://www.anaconda.com/distribution/#download-section>, select
+    the version for Python 3.7 and make sure to pick the right operating
+    system (top of the page: select Windows, macOS or Linux)
+
+- install Anaconda. This is straightforward after launching the
+    installer, but (in case you are in doubt) some instructions are at
+    <https://docs.anaconda.com/anaconda/install/windows/>
+
+To install keras we recommend the installation instructions on
 <https://keras.rstudio.com/>.
 
 ``` r
@@ -181,15 +192,6 @@ install_keras()
 
 If the above instructions to get `keras` do **not** work, you can
 **alternatively** proceed as follows
-
-  - download Anaconda at
-    <https://www.anaconda.com/distribution/#download-section>, select
-    the version for Python 3.7 and make sure to pick the right operating
-    system (top of the page: select Windows, macOS or Linux)
-
-  - install Anaconda. This is straightforward after launching the
-    installer, but (in case you are in doubt) some instructions are at
-    <https://docs.anaconda.com/anaconda/install/windows/>
 
   - open an Anaconda Prompt (or terminal for macOS) (e.g. via Start in
     Windows and search for Anaconda Prompt) and install keras and

@@ -51,6 +51,9 @@ install.packages("h2o", type="source", repos="http://h2o-release.s3.amazonaws.co
 
 ## Step 3: get R interface to keras
 
+# Start by intalling Anaconda from https://www.anaconda.com/distribution/#download-section
+# Execute the following lines of code once Anaconda is installed.
+
 devtools::install_github("rstudio/keras")
 library(keras)
 install_keras()

@@ -6,12 +6,10 @@ by Katrien Antonio, Jonas Crevecoeur and Roel Henckaerts
 Course materials for the *Machine Learning in R* course in February 2020
 in The Hague.
 
-📆 February 11, 12 and 13, 2020 <br> ⏰ From 9 am to 4.30 pm <br> 📍
+📆 February 11, 12 and 13, 2020 <br> 🕗 From 9 am to 4.30 pm <br> 📍
 Nationale Nederlanden, The Hague
 
 Course materials will be posted in the week before the workshop.
-
-<hr style="height:0.5px;">
 
 ## Overview
 
@@ -39,8 +37,6 @@ acquired the fundamental insights to explore some other methods on your
 own.
 
 </p>
-
-<hr style="height:1px;">
 
 ## Schedule
 
@@ -86,8 +82,6 @@ Topics include:
   - putting it all together: case studies
   - wrap up.
 
-<hr style="height:1px;">
-
 ## Prework
 
 <p align="justify">
@@ -109,8 +103,6 @@ topics.
 Familiarity with statistical or machine learning methods is *not*
 required. The workshop gradually builds up these concepts, with an
 emphasis on hands-on demonstrations and exercises.
-
-<hr style="height:1px;">
 
 ## Software Requirements
 
@@ -145,9 +137,7 @@ if(sum(!(all_packages %in% installed.packages()[, "Package"]))) {
 
 On **Day 2** you will explore the R interface for the ‘H2O’ Scalable
 Machine Learning Platform. We recommend the following installation
-instructions.
-
-Option 2: see
+instructions, see
 <http://h2o-release.s3.amazonaws.com/h2o/rel-yu/1/index.html>
 
 ``` r
@@ -165,7 +155,7 @@ for (pkg in pkgs) {
 install.packages("h2o", type="source", repos="http://h2o-release.s3.amazonaws.com/h2o/rel-yu/1/R")
 ```
 
-Option 2: via CRAN
+Alternatively, you just do
 
 ``` r
 install.packages("h2o")
@@ -215,15 +205,11 @@ devtools::install_github("rstudio/keras")
 library(keras)
 ```
 
-<hr style="height:1px;">
-
 ## Course material
 
 Lecture sheets will become available a week before the workshop (in pdf
 and HTML format). R scripts, notebooks and the data sets used throughout
 the course will be at your disposal.
-
-<hr style="height:1px;">
 
 ## Instructors
 
@@ -264,8 +250,6 @@ of the Research Foundation - Flanders (FWO, PhD fellowship strategic
 basic research).
 
 </p>
-
-<hr style="height:1px;">
 
 Happy learning\!
 

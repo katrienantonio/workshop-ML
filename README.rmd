@@ -88,7 +88,7 @@ Please bring a laptop with a recent version of R and RStudio installed. Make sur
 - R (at least 3.6 <https://cloud.r-project.org/bin/windows/base/> )
 - RStudio ( <https://www.rstudio.com/products/rstudio/download/#download> )
 
-You will now go through three steps: (1) installing packages, (2) installing h2o interface and (3) installing keras interface. The instructions are also stored as an R script in the [scripts](https://github.com/katrienantonio/workshop-ML/scripts) folder.  
+You will now go through three steps: (1) installing packages, (2) installing h2o interface and (3) installing keras interface. The instructions are also stored as an R script in the [scripts](https://github.com/katrienantonio/workshop-ML/tree/master/scripts) folder.  
 
 **Step 1**: run the following script in your R session to install the required packages
 

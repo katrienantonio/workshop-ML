@@ -6,7 +6,7 @@ by Katrien Antonio, Jonas Crevecoeur and Roel Henckaerts
 Course materials for the *Machine Learning in R* course in February 2020
 in The Hague.
 
-📆 February 11, 12 and 13, 2020 <br> 🕥 From 9 am to 4.30 pm <br> 📍
+📆 February 11, 12 and 13, 2020 <br> 🕒 From 9 am to 4.30 pm <br> 📍
 Nationale Nederlanden, The Hague
 
 Course materials will be posted in the week before the workshop.
@@ -117,7 +117,8 @@ course material one day before the start of the workshop. You will need:
 You will now go through three steps: (1) installing packages, (2)
 installing h2o interface and (3) installing keras interface. The
 instructions are also stored as an R script in the
-[scripts](https://github.com/katrienantonio/workshop-ML/scripts) folder.
+[scripts](https://github.com/katrienantonio/workshop-ML/tree/master/scripts)
+folder.
 
 **Step 1**: run the following script in your R session to install the
 required packages

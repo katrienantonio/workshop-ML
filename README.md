@@ -6,47 +6,62 @@ by Katrien Antonio, Jonas Crevecoeur and Roel Henckaerts
 Course materials for the *Machine Learning in R* course in February 2020
 in The Hague.
 
-📆 February 11, 12 and 13, 2020 <br> 🕒 From 9 am to 4.30 pm <br> 📍
+📆 February 11, 12 and 13, 2020 <br> ⏰ From 9 am to 4.30 pm <br> 📍
 Nationale Nederlanden, The Hague
 
 Course materials will be posted in the week before the workshop.
 
 <hr style="height:0.5px;">
 
-### Overview
+## Overview
 
-<p style="text-align:justify;">
+<p text-align="justify">
 
-This three-day workshop introduces the *essential concepts of building machine learning models with R*. Throughout the workshop you will gain insights in the foundations of machine learning methods, including *resampling methods*, *data preprocessing steps* and the *tuning of parameters*. You will cover a variety of *statistical and machine learning methods*, ranging from GLMs, over tree-based machine learning methods to neural networks. You will acquire insights in the foundations of these methods, learn how to set-up the model building process, and focus on building a good understanding of the resulting model output and predictions.
+This three-day workshop introduces the *essential concepts of building
+machine learning models with R*. Throughout the workshop you will gain
+insights in the foundations of machine learning methods, including
+*resampling methods*, *data preprocessing steps* and the *tuning of
+parameters*. You will cover a variety of *statistical and machine
+learning methods*, ranging from GLMs, over tree-based machine learning
+methods to neural networks. You will acquire insights in the foundations
+of these methods, learn how to set-up the model building process, and
+focus on building a good understanding of the resulting model output and
+predictions.
 
 </p>
 
-<div style="text-align:justify">Leaving this workshop, you should have a firm grasp of the working
+<p align="justify">
+
+Leaving this workshop, you should have a firm grasp of the working
 principles of a variety of machine learning methods and be able to
 explore their use in practical settings. Moreover, you should have
 acquired the fundamental insights to explore some other methods on your
-own.</div>
+own.
+
+</p>
 
 <hr style="height:1px;">
 
-### Schedule
+## Schedule
 
 The detailed schedule follows in the week before the workshop.
 
-| Session | Duration  | Description | Material                         |
-| :-----: | --------- | ----------- | -------------------------------- |
-|  Day 1  | 6.5 hours |             | [slides](https://www.google.com) |
-|  Day 2  | 6.5 hours |             | ..                               |
-|  Day 3  | 6.5 hours | …           | ..                               |
+| Session | Duration  | Description | Material |
+| :-----: | --------- | ----------- | -------- |
+|  Day 1  | 6.5 hours | …           | …        |
+|  Day 2  | 6.5 hours | …           | …        |
+|  Day 3  | 6.5 hours | …           | …        |
 
 ##### Day 1: Machine learning foundations, regression methods
 
 Topics include:
 
   - statistical and machine learning: a tour
-  - machine learning foundations
-  - feature pre-processing steps
-  - regression models (including regularization): `lm()`, `glm()`,
+  - machine learning foundations, including resampling with `caret` and
+    `rsample`
+  - feature pre-processing steps, including setting up a blue-print with
+    `recipes`
+  - regression models, including regularization: `lm()`, `glm()`,
     `mgcv()`, `glmnet()`
 
 ##### Day 2: Tree-based machine learning methods
@@ -73,7 +88,7 @@ Topics include:
 
 <hr style="height:1px;">
 
-### Prework
+## Prework
 
 <p align="justify">
 
@@ -97,7 +112,7 @@ emphasis on hands-on demonstrations and exercises.
 
 <hr style="height:1px;">
 
-### Software Requirements
+## Software Requirements
 
 Please bring a laptop with a recent version of R and RStudio installed.
 Make sure you can connect your laptop to the internet (or download the
@@ -111,17 +126,50 @@ Run the following script in your R session to install the required
 packages
 
 ``` r
-packages <- c("tidyverse", "here", "gridExtra", "AmesHousing", "caret", "rsample", "broom", "recipes", "mgcv", "glmnet", "evtree", "classInt", "rgdal", "RColorBrewer", "ggmap", "grid", "gridExtra", "rpart")
+packages <- c("tidyverse", "here", "gridExtra", "AmesHousing", "caret", "rsample", "broom", "recipes", "mgcv", "glmnet", "evtree", "classInt", "rgdal", "RColorBrewer", "ggmap", "grid", "rpart", "rpart.plot", "rpart.utils", "vip", "pdp", "ipred", "ranger", "gbm", "xgboost", "gganimate", "transformr", "zeallot", "sp", "tmap", "partykit", "rattle", "sf", "leaflet", "devtools")
 new_packages <- packages[!(packages %in% installed.packages()[,"Package"])]
 if(length(new_packages)) install.packages(new_packages)
 
-all_packages <- c("ggplot2", "dplyr", "tidyr", "purrr", "readr", "tibble", "lubridate", "here", "gridExtra", "AmesHousing", "caret", "rsample", "broom", "recipes", "mgcv", "glmnet", "evtree", "classInt", "rgdal", "RColorBrewer", "ggmap", "grid", "gridExtra", "rpart")
+# from github
+devtools::install_github("henckr/distRforest")
+library(distRforest) # from https://github.com/henckr/distRforest
+
+all_packages <- c("ggplot2", "dplyr", "tidyr", "purrr", "readr", "tibble", "lubridate", "here", "gridExtra", "AmesHousing", "caret", "rsample", "broom", "recipes", "mgcv", "glmnet", "evtree", "classInt", "rgdal", "RColorBrewer", "ggmap", "grid", "rpart", "RColorBrewer", "ggmap", "grid", "gridExtra", "rpart", "rpart.plot", "rpart.utils", "vip", "pdp", "ipred", "ranger", "gbm", "xgboost", "gganimate", "transformr", "zeallot", "sp", "tmap", "partykit", "rattle", "sf", "leaflet", "distRforest")
 
 if(sum(!(all_packages %in% installed.packages()[, "Package"]))) {
   stop("Not all required packages are installed!")
 } else {
   message("Everything is set up correctly. You are ready for the workshop!")
 }
+```
+
+On **Day 2** you will explore the R interface for the ‘H2O’ Scalable
+Machine Learning Platform. We recommend the following installation
+instructions.
+
+Option 2: see
+<http://h2o-release.s3.amazonaws.com/h2o/rel-yu/1/index.html>
+
+``` r
+# The following two commands remove any previously installed H2O packages for R.
+if ("package:h2o" %in% search()) { detach("package:h2o", unload=TRUE) }
+if ("h2o" %in% rownames(installed.packages())) { remove.packages("h2o") }
+
+# Next, we download packages that H2O depends on.
+pkgs <- c("RCurl","jsonlite")
+for (pkg in pkgs) {
+  if (! (pkg %in% rownames(installed.packages()))) { install.packages(pkg) }
+}
+
+# Now we download, install and initialize the H2O package for R.
+install.packages("h2o", type="source", repos="http://h2o-release.s3.amazonaws.com/h2o/rel-yu/1/R")
+```
+
+Option 2: via CRAN
+
+``` r
+install.packages("h2o")
+library(h2o)
 ```
 
 On **Day 3** you will be working with the R interface to `keras`. We
@@ -134,8 +182,8 @@ library(keras)
 install_keras()
 ```
 
-If the above instructions do **not** work, you can **alternatively**
-proceed as follows
+If the above instructions to get `keras` do **not** work, you can
+**alternatively** proceed as follows
 
   - download Anaconda at
     <https://www.anaconda.com/distribution/#download-section>, select
@@ -169,7 +217,7 @@ library(keras)
 
 <hr style="height:1px;">
 
-### Course material
+## Course material
 
 Lecture sheets will become available a week before the workshop (in pdf
 and HTML format). R scripts, notebooks and the data sets used throughout
@@ -177,7 +225,7 @@ the course will be at your disposal.
 
 <hr style="height:1px;">
 
-### Instructors
+## Instructors
 
 <img src="img/Katrien.jpg" width="120"/>
 

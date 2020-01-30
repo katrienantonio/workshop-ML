@@ -6,7 +6,7 @@ by Katrien Antonio, Jonas Crevecoeur and Roel Henckaerts
 Course materials for the *Machine Learning in R* course in February 2020
 in The Hague.
 
-📆 February 11, 12 and 13, 2020 <br> 🕒 From 9 am to 4.30 pm <br> 📍
+📆 February 11, 12 and 13, 2020 <br> 🕖 From 9 am to 4.30 pm <br> 📍
 Nationale Nederlanden, The Hague
 
 Course materials will be posted in the week before the workshop.
@@ -110,7 +110,7 @@ Please bring a laptop with a recent version of R and RStudio installed.
 Make sure you can connect your laptop to the internet (or download the
 course material one day before the start of the workshop. You will need:
 
-  - R (at least 3.6 <https://cloud.r-project.org/bin/windows/base/> )
+  - R (at least 3.5.2 <https://cloud.r-project.org/bin/windows/base/> )
   - RStudio (
     <https://www.rstudio.com/products/rstudio/download/#download> )
 
@@ -184,8 +184,8 @@ If the above instructions to get `keras` do **not** work, you can
 
   - download Anaconda at
     <https://www.anaconda.com/distribution/#download-section>, select
-    the version for Python 3.7 and make sure to pick the right (top of
-    the page: select Windows, macOS or Linux)
+    the version for Python 3.7 and make sure to pick the right operating
+    system (top of the page: select Windows, macOS or Linux)
 
   - install Anaconda. This is straightforward after launching the
     installer, but (in case you are in doubt) some instructions are at

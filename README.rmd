@@ -85,7 +85,7 @@ Familiarity with statistical or machine learning methods is *not* required. The 
 
 Please bring a laptop with a recent version of R and RStudio installed. Make sure you can connect your laptop to the internet (or download the course material one day before the start of the workshop. You will need:
 
-- R (at least 3.6 <https://cloud.r-project.org/bin/windows/base/> )
+- R (at least 3.5.2 <https://cloud.r-project.org/bin/windows/base/> )
 - RStudio ( <https://www.rstudio.com/products/rstudio/download/#download> )
 
 You will now go through three steps: (1) installing packages, (2) installing h2o interface and (3) installing keras interface. The instructions are also stored as an R script in the [scripts](https://github.com/katrienantonio/workshop-ML/tree/master/scripts) folder.  
@@ -145,7 +145,7 @@ install_keras()
 
 If the above instructions to get `keras` do **not** work, you can **alternatively** proceed as follows
 
-* download Anaconda at <https://www.anaconda.com/distribution/#download-section>, select the version for Python 3.7 and make sure to pick the right (top of the page: select Windows, macOS or Linux)
+* download Anaconda at <https://www.anaconda.com/distribution/#download-section>, select the version for Python 3.7 and make sure to pick the right operating system (top of the page: select Windows, macOS or Linux)
 
 * install Anaconda. This is straightforward after launching the installer, but (in case you are in doubt) some instructions are at <https://docs.anaconda.com/anaconda/install/windows/>
 

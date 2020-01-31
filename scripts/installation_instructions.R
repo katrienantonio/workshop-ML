@@ -20,7 +20,7 @@ all_packages <- c("ggplot2", "dplyr", "tidyr", "purrr", "readr", "tibble", "lubr
                   "grid", "gridExtra", "rpart", "rpart.plot", "rpart.utils", "vip", "pdp", 
                   "ipred", "ranger", "gbm", "xgboost", "gganimate", "transformr", 
                   "zeallot", "sp", "tmap", "partykit", "rattle", "sf", "leaflet", 
-                  "rstudioapi", "distRforest")
+                  "rstudioapi", "distRforest", "devtools", "Rtools")
 
 if(sum(!(all_packages %in% installed.packages()[, "Package"]))) {
   stop(paste('The following required packages are not installed:\n', 

@@ -124,15 +124,16 @@ folder.
 required packages
 
 ``` r
-packages <- c("tidyverse", "here", "gridExtra", "AmesHousing", "caret", "rsample", "broom", "recipes", "mgcv", "glmnet", "evtree", "classInt", "rgdal", "RColorBrewer", "ggmap", "grid", "rpart", "rpart.plot", "rpart.utils", "vip", "pdp", "ipred", "ranger", "gbm", "xgboost", "gganimate", "transformr", "zeallot", "sp", "tmap", "partykit", "rattle", "sf", "leaflet", "devtools", "Rtools")
+packages <- c("tidyverse", "here", "gridExtra", "AmesHousing", "caret", "rsample", "broom", "recipes", "mgcv", "glmnet", "evtree", "classInt", "rgdal", "RColorBrewer", "ggmap", "grid", "rpart", "rpart.plot", "rpart.utils", "vip", "pdp", "ipred", "ranger", "gbm", "xgboost", "gganimate", "transformr", "zeallot", "sp", "tmap", "partykit", "rattle", "sf", "leaflet", "rstudioapi")
 new_packages <- packages[!(packages %in% installed.packages()[,"Package"])]
 if(length(new_packages)) install.packages(new_packages)
 
 # from github
+install.packages(c("Rtools", "devtools")) 
 devtools::install_github("henckr/distRforest")
 library(distRforest) # from https://github.com/henckr/distRforest
 
-all_packages <- c("ggplot2", "dplyr", "tidyr", "purrr", "readr", "tibble", "lubridate", "here", "gridExtra", "AmesHousing", "caret", "rsample", "broom", "recipes", "mgcv", "glmnet", "evtree", "classInt", "rgdal", "RColorBrewer", "ggmap", "grid", "rpart", "RColorBrewer", "ggmap", "grid", "gridExtra", "rpart", "rpart.plot", "rpart.utils", "vip", "pdp", "ipred", "ranger", "gbm", "xgboost", "gganimate", "transformr", "zeallot", "sp", "tmap", "partykit", "rattle", "sf", "leaflet", "devtools", "Rtools", "distRforest")
+all_packages <- c("ggplot2", "dplyr", "tidyr", "purrr", "readr", "tibble", "lubridate", "here", "gridExtra", "AmesHousing", "caret", "rsample", "broom", "recipes", "mgcv", "glmnet", "evtree", "classInt", "rgdal", "RColorBrewer", "ggmap", "grid", "rpart", "RColorBrewer", "ggmap", "grid", "gridExtra", "rpart", "rpart.plot", "rpart.utils", "vip", "pdp", "ipred", "ranger", "gbm", "xgboost", "gganimate", "transformr", "zeallot", "sp", "tmap", "partykit", "rattle", "sf", "leaflet", "rstudioapi, "devtools", "Rtools", "distRforest")
 
 if(sum(!(all_packages %in% installed.packages()[, "Package"]))) {
   stop(paste('The following required packages are not installed:\n', paste(all_packages[which(!(all_packages %in% installed.packages()[, "Package"]))], collapse = ', ')));

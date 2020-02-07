@@ -6,7 +6,7 @@ by Katrien Antonio, Jonas Crevecoeur and Roel Henckaerts
 Course materials for the *Machine Learning in R* course in February 2020
 in The Hague.
 
-📆 February 11, 12 and 13, 2020 <br> 🕓 From 9.30 am to 4.30 pm <br> 📍
+📆 February 11, 12 and 13, 2020 <br> 🕧 From 9.30 am to 4.30 pm <br> 📌
 Nationale Nederlanden, The Hague
 
 Course materials will be posted in the week before the workshop.
@@ -128,15 +128,16 @@ packages <- c("tidyverse", "here", "gridExtra", "AmesHousing", "caret", "rsample
 new_packages <- packages[!(packages %in% installed.packages()[,"Package"])]
 if(length(new_packages)) install.packages(new_packages)
 
-# from github
+# from github, requires Rtools and devtools
 install.packages(c("Rtools", "devtools")) 
 devtools::install_github("henckr/distRforest")
 library(distRforest) # from https://github.com/henckr/distRforest
 
-all_packages <- c("ggplot2", "dplyr", "tidyr", "purrr", "readr", "tibble", "lubridate", "here", "gridExtra", "AmesHousing", "caret", "rsample", "broom", "recipes", "mgcv", "glmnet", "evtree", "classInt", "rgdal", "RColorBrewer", "ggmap", "grid", "rpart", "RColorBrewer", "ggmap", "grid", "gridExtra", "rpart", "rpart.plot", "rpart.utils", "vip", "pdp", "ipred", "ranger", "gbm", "xgboost", "gganimate", "transformr", "zeallot", "sp", "tmap", "partykit", "rattle", "sf", "leaflet", "rstudioapi", "devtools", "Rtools", "distRforest")
+all_packages <- c("ggplot2", "dplyr", "tidyr", "purrr", "readr", "tibble", "lubridate", "here", "gridExtra", "AmesHousing", "caret", "rsample", "broom", "recipes", "mgcv", "glmnet", "evtree", "classInt", "rgdal", "RColorBrewer", "ggmap", "grid", "rpart", "RColorBrewer", "ggmap", "grid", "gridExtra", "rpart", "rpart.plot", "rpart.utils", "vip", "pdp", "ipred", "ranger", "gbm", "xgboost", "gganimate", "transformr", "zeallot", "sp", "tmap", "partykit", "rattle", "sf", "leaflet", "devtools", "Rtools", "rstudioapi", "distRforest")
 
 if(sum(!(all_packages %in% installed.packages()[, "Package"]))) {
-  stop(paste('The following required packages are not installed:\n', paste(all_packages[which(!(all_packages %in% installed.packages()[, "Package"]))], collapse = ', ')));
+  stop(paste('The following required packages are not installed:\n', 
+          paste(all_packages[which(!(all_packages %in% installed.packages()[, "Package"]))], collapse = ', ')));
 } else {
   message("Everything is set up correctly. Now go to the next steps (h2o and keras).")
 }
@@ -169,19 +170,22 @@ install.packages("h2o")
 library(h2o)
 ```
 
-**Step 3**: on **Day 3** you will be working with the R interface to `keras`. 
+**Step 3**: on **Day 3** you will be working with the R interface to
+`keras`.
 
-Installing keras requires a working version of Anaconda. To install Anaconda:
-- download Anaconda at
+Installing keras requires a working version of Anaconda. To install
+Anaconda:
+
+  - download Anaconda at
     <https://www.anaconda.com/distribution/#download-section>, select
     the version for Python 3.7 and make sure to pick the right operating
     system (top of the page: select Windows, macOS or Linux)
 
-- install Anaconda. This is straightforward after launching the
+  - install Anaconda. This is straightforward after launching the
     installer, but (in case you are in doubt) some instructions are at
     <https://docs.anaconda.com/anaconda/install/windows/>
 
-For installing keras we recommend the installation instructions on
+For installing keras, we recommend the installation instructions on
 <https://keras.rstudio.com/>.
 
 ``` r

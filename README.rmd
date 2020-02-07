@@ -175,7 +175,7 @@ Lecture sheets will become available a week before the workshop (in pdf and HTML
 
 ## Instructors
 
-<img src="img/Katrien.jpg" width="120"/> 
+<img src="img/Katrien.jpg" width="110"/> 
 
 <p align="justify">[Katrien Antonio](https://katrienantonio.github.io/) is professor in insurance data science at KU Leuven and associate professor at University of Amsterdam. She teaches courses on data science for insurance, life and non-life insurance mathematics and loss models. Research-wise Katrien puts focus on pricing, reserving and fraud analytics, as well as mortality dynamics. Katrien will teach Day 1 of the workshop, and serve as TA on Day 2 and 3.</p>
 

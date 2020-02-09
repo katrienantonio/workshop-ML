@@ -6,7 +6,7 @@ by Katrien Antonio, Jonas Crevecoeur and Roel Henckaerts
 Course materials for the *Machine Learning in R* course in February 2020
 in The Hague.
 
-📆 February 11, 12 and 13, 2020 <br> 🕧 From 9.30 am to 4.30 pm <br> 📍
+📆 February 11, 12 and 13, 2020 <br> 🕥 From 9.30 am to 4.30 pm <br> 📍
 Nationale Nederlanden, The Hague
 
 Course materials will be posted in the week before the workshop.
@@ -42,12 +42,17 @@ own.
 
 The detailed schedule follows in the week before the workshop.
 
-| Session | Duration     | Description | Material                                                                                                            |
-| :-----: | ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------- |
-|  Day 1  | 9.30 - 9.50  | Prologue    | [sheets](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#prologue)  |
-|         | 9.50 - 10.50 | Data sets   | [sheets](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#data-sets) |
-|  Day 2  | 6 hours      | …           | …                                                                                                                   |
-|  Day 3  | 6 hours      | …           | …                                                                                                                   |
+| Session | Duration      | Description                      | Lecture material                                                                                                                  | R script                                                                                |
+| :-----: | ------------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+|  Day 1  | 09.30 - 09.50 | Prologue                         | [sheets prologue](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#prologue)       | [script](https://katrienantonio.github.io/workshop-ML/scripts/day_1/1_data_sets_used.R) |
+|         | 09.50 - 10.30 | Data sets                        | [sheets data sets](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#data-sets)     |                                                                                         |
+|         | 10.30 - 11.00 | Statistical and machine learning | [sheets stats and ML](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#knowing)    |                                                                                         |
+|         | 11.15 - 12.30 | Machine learning foundations     | [sheets foundations](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#foundations) |                                                                                         |
+|         | 13.30 - 14.00 | Machine learning foundations     | [sheets foundations](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#foundations) |                                                                                         |
+|         | 14.00 - 15.00 | Target and feature engineering   | [sheets engineering](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#engineering) |                                                                                         |
+|         | 15.15 - 16.30 | Regression models                | [sheets regression](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#regression)   |                                                                                         |
+|  Day 2  | 6 hours       | …                                | …                                                                                                                                 |                                                                                         |
+|  Day 3  | 6 hours       | …                                | …                                                                                                                                 |                                                                                         |
 
 ##### Day 1: Machine learning foundations, regression methods
 

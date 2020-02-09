@@ -6,7 +6,7 @@ by Katrien Antonio, Jonas Crevecoeur and Roel Henckaerts
 Course materials for the *Machine Learning in R* course in February 2020
 in The Hague.
 
-📆 February 11, 12 and 13, 2020 <br> 🕥 From 9.30 am to 4.30 pm <br> 📍
+📆 February 11, 12 and 13, 2020 <br> ⏰ From 9.30 am to 4.30 pm <br> 📍
 Nationale Nederlanden, The Hague
 
 Course materials will be posted in the week before the workshop.
@@ -40,19 +40,27 @@ own.
 
 ## Schedule
 
-The detailed schedule follows in the week before the workshop.
+The detailed schedule is subject to small changes.
 
-| Session | Duration      | Description                      | Lecture material                                                                                                                  | R script                                                                                |
-| :-----: | ------------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-|  Day 1  | 09.30 - 09.50 | Prologue                         | [sheets prologue](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#prologue)       | [script](https://katrienantonio.github.io/workshop-ML/scripts/day_1/1_data_sets_used.R) |
-|         | 09.50 - 10.30 | Data sets                        | [sheets data sets](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#data-sets)     |                                                                                         |
-|         | 10.30 - 11.00 | Statistical and machine learning | [sheets stats and ML](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#knowing)    |                                                                                         |
-|         | 11.15 - 12.30 | Machine learning foundations     | [sheets foundations](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#foundations) |                                                                                         |
-|         | 13.30 - 14.00 | Machine learning foundations     | [sheets foundations](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#foundations) |                                                                                         |
-|         | 14.00 - 15.00 | Target and feature engineering   | [sheets engineering](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#engineering) |                                                                                         |
-|         | 15.15 - 16.30 | Regression models                | [sheets regression](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#regression)   |                                                                                         |
-|  Day 2  | 6 hours       | …                                | …                                                                                                                                 |                                                                                         |
-|  Day 3  | 6 hours       | …                                | …                                                                                                                                 |                                                                                         |
+| Session | Duration      | Description                      | Lecture material                                                                                                                            | R script                                                                                |
+| :-----: | ------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+|  Day 1  | 09.30 - 09.50 | Prologue                         | [sheets prologue](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#prologue)                 | [script](https://katrienantonio.github.io/workshop-ML/scripts/day_1/1_data_sets_used.R) |
+|         | 09.50 - 10.30 | Data sets                        | [sheets data sets](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#data-sets)               |                                                                                         |
+|         | 10.30 - 11.00 | Statistical and machine learning | [sheets stats and ML](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#knowing)              |                                                                                         |
+|         | 11.15 - 12.30 | Machine learning foundations     | [sheets foundations](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#foundations)           |                                                                                         |
+|         | 13.30 - 14.00 | Machine learning foundations     | [sheets foundations](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#foundations)           |                                                                                         |
+|         | 14.00 - 15.00 | Target and feature engineering   | [sheets engineering](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#engineering)           |                                                                                         |
+|         | 15.15 - 16.30 | Regression models                | [sheets regression](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#regression)             |                                                                                         |
+|  Day 2  | 09.30 - 11.00 | Trees                            | [sheets trees](https://katrienantonio.github.io/workshop-ML/sheets/day_2/lecture_sheets_workshop_ML_Day_2.html#trees)                       |                                                                                         |
+|         | 11.15 - 12.30 | Bagging and random forests       | [sheets bagging and random forests](https://katrienantonio.github.io/workshop-ML/sheets/day_2/lecture_sheets_workshop_ML_Day_2.html#bag_rf) |                                                                                         |
+|         | 13.30 - 15.00 | Gradient boosting machine        | [sheets gbm](https://katrienantonio.github.io/workshop-ML/sheets/day_2/lecture_sheets_workshop_ML_Day_2.html#gbm)                           |                                                                                         |
+|         | 15.15 - 16.30 | h2o                              | [sheets h2o](https://katrienantonio.github.io/workshop-ML/sheets/day_2/lecture_sheets_workshop_ML_Day_2.html#h2o)                           |                                                                                         |
+|  Day 3  | 09.30 - 10.00 | Introduction                     | [sheets intro](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#introduction)                | …                                                                                       |
+|         | 10.00 - 11.00 | Fundamentals                     | [sheets fundamentals](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#fundamentals)         |                                                                                         |
+|         | 11.15 - 11.45 | More on fundamentals             | [sheets fundamentals](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#fundamentals)         |                                                                                         |
+|         | 11.45 - 12.30 | Autoencoders                     | [sheets autoencoders](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#autoencoder)          |                                                                                         |
+|         | 13.30 - 15.00 | CNNs                             | [sheets CNNs](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#cnn)                          |                                                                                         |
+|         | 15.15 - 16.30 | Regression                       | [sheets regression](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#regression)             |                                                                                         |
 
 ##### Day 1: Machine learning foundations, regression methods
 

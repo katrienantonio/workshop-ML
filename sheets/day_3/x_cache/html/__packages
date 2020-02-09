@@ -1,0 +1,14 @@
+base
+extrafont
+ggplot2
+knitr
+keras
+tidyverse
+tibble
+tidyr
+readr
+purrr
+dplyr
+stringr
+forcats
+rsample

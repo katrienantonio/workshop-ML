@@ -6,7 +6,7 @@ by Katrien Antonio, Jonas Crevecoeur and Roel Henckaerts
 Course materials for the *Machine Learning in R* course in February 2020
 in The Hague.
 
-📆 February 11, 12 and 13, 2020 <br> 🕢 From 9.30 am to 4.30 pm <br> 📍
+📆 February 11, 12 and 13, 2020 <br> 🕧 From 9.30 am to 4.30 pm <br> 📍
 Nationale Nederlanden, The Hague
 
 Course materials will be posted in the week before the workshop.
@@ -42,11 +42,12 @@ own.
 
 The detailed schedule follows in the week before the workshop.
 
-| Session | Duration | Description | Material |
-| :-----: | -------- | ----------- | -------- |
-|  Day 1  | 6 hours  | …           | …        |
-|  Day 2  | 6 hours  | …           | …        |
-|  Day 3  | 6 hours  | …           | …        |
+| Session | Duration     | Description | Material                                                                                                            |
+| :-----: | ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------- |
+|  Day 1  | 9.30 - 9.50  | Prologue    | [sheets](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#prologue)  |
+|         | 9.50 - 10.50 | Data sets   | [sheets](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#data-sets) |
+|  Day 2  | 6 hours      | …           | …                                                                                                                   |
+|  Day 3  | 6 hours      | …           | …                                                                                                                   |
 
 ##### Day 1: Machine learning foundations, regression methods
 

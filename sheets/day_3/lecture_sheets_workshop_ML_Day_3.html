@@ -128,12 +128,12 @@ What is a **tensor**?
 
 * A 1-dimensional tensor is a vector
 
-&lt;img src="images/neural_networks_unnamed-chunk-4-1.png" width="300" height="20" style="display: block; margin: auto;" /&gt;
+&lt;img src="Images/neural_networks_unnamed-chunk-4-1.png" width="300" height="20" style="display: block; margin: auto;" /&gt;
 
 
 * A 2-dimensional tensor is a matrix
 
-&lt;img src="images/neural_networks_unnamed-chunk-5-1.png" width="300" height="100" style="display: block; margin: auto;" /&gt;
+&lt;img src="Images/neural_networks_unnamed-chunk-5-1.png" width="300" height="100" style="display: block; margin: auto;" /&gt;
 
 * ...
 
@@ -288,13 +288,13 @@ We will use the [MNIST dataset](http://yann.lecun.com/exdb/mnist/), which contai
 .pull-left[
 Each image is stored as a 28x28 intensity matrix.
 
-&lt;img src="images/neural_networks_example_mnist_input-1.png" width="360" height="360" style="display: block; margin: auto;" /&gt;
+&lt;img src="Images/neural_networks_example_mnist_input-1.png" width="360" height="360" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
 Recognizing that the images below all represent the digit 8 is trivial for humans, but difficult for computers.
 
-&lt;img src="images/neural_networks_plot_example_mnist-1.svg" height="150" style="display: block; margin: auto;" /&gt;
+&lt;img src="Images/neural_networks_plot_example_mnist-1.svg" height="150" style="display: block; margin: auto;" /&gt;
 
 Neural networks are ideal for situations where the relation between the input (intensity matrix) and the output (0-9) is complicated.
 ]
@@ -496,7 +496,7 @@ Many activation functions are available:
 * Simple derivative (fast calibration).
 * Not used in the output layer.
 
-&lt;img src="images/neural_networks_unnamed-chunk-24-1.png" width="300" height="200" style="display: block; margin: auto;" /&gt;
+&lt;img src="Images/neural_networks_unnamed-chunk-24-1.png" width="300" height="200" style="display: block; margin: auto;" /&gt;
 $$ f(x) = \max(x, 0)$$
 ]
 ---
@@ -515,7 +515,7 @@ Many activation functions are available:
 .pull-right[
 * Only used in the output layer.
 
-&lt;img src="images/neural_networks_unnamed-chunk-25-1.png" width="300" height="200" style="display: block; margin: auto;" /&gt;
+&lt;img src="Images/neural_networks_unnamed-chunk-25-1.png" width="300" height="200" style="display: block; margin: auto;" /&gt;
 $$ f(x) = x$$
 ]
 ---
@@ -537,7 +537,7 @@ Many activation functions are available:
 * Transform `\(z\)` to `\((0, 1)\)`.
 * Focus on values around zero.
 
-&lt;img src="images/neural_networks_unnamed-chunk-26-1.png" width="300" height="200" style="display: block; margin: auto;" /&gt;
+&lt;img src="Images/neural_networks_unnamed-chunk-26-1.png" width="300" height="200" style="display: block; margin: auto;" /&gt;
 $$ f(x) = \frac{1}{(1+e^{-x})}$$
 ]
 ---
@@ -660,7 +660,7 @@ The R-script includes a function `plot_figure` to visualize the input:
 plot_image(input[17, ])
 ```
 
-&lt;img src="images/neural_networks_plot_image_function-1.png" width="50" height="50" style="display: block; margin: auto;" /&gt;
+&lt;img src="Images/neural_networks_plot_image_function-1.png" width="50" height="50" style="display: block; margin: auto;" /&gt;
 ]
 
 
@@ -1130,7 +1130,7 @@ random &lt;- matrix(runif(28^2), nrow = 1)
 plot_image(random[1, ])
 ```
 
-&lt;img src="images/neural_networks_unnamed-chunk-57-1.png" width="360" height="360" style="display: block; margin: auto;" /&gt;
+&lt;img src="Images/neural_networks_unnamed-chunk-57-1.png" width="360" height="360" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -1496,7 +1496,7 @@ A useful feature for classifying the number four is the presence of straight, ve
 
 .hi-pink[Q]: How should the kernel look to detect this feature?
 
-&lt;img src="images/neural_networks_unnamed-chunk-75-1.png" width="200" height="200" style="display: block; margin: auto;" /&gt;
+&lt;img src="Images/neural_networks_unnamed-chunk-75-1.png" width="200" height="200" style="display: block; margin: auto;" /&gt;
 
 
 ]
@@ -1720,7 +1720,7 @@ random_conv &lt;- k_expand_dims(random_conv, axis = 4)
 plot_image(random)
 ```
 
-&lt;img src="images/neural_networks_unnamed-chunk-93-1.png" width="300" height="300" style="display: block; margin: auto;" /&gt;
+&lt;img src="Images/neural_networks_unnamed-chunk-93-1.png" width="300" height="300" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -1813,13 +1813,7 @@ Create a training and test set:
 
 ```r
 require(rsample)
-```
 
-```
-## Loading required package: rsample
-```
-
-```r
 data_split &lt;- initial_split(mtpl)
 mtpl_train &lt;- training(data_split)
 mtpl_test  &lt;- testing(data_split)
@@ -1985,11 +1979,11 @@ glm_fit
 ## 
 ## Coefficients:
 ## (Intercept)  
-##      -2.088  
+##      -2.087  
 ## 
 ## Degrees of Freedom: 122423 Total (i.e. Null);  122423 Residual
-## Null Deviance:	    67570 
-## Residual Deviance: 67570 	AIC: 95850
+## Null Deviance:	    67510 
+## Residual Deviance: 67510 	AIC: 95860
 ```
 ]
 
@@ -2038,7 +2032,7 @@ poisson_loss(predict(glm_fit,
 ```
 
 ```
-## [1] 0.3830991
+## [1] 0.3824852
 ```
 
 ]
@@ -2054,10 +2048,10 @@ evaluate(claim_count_model,
 
 ```
 ## $loss
-## [1] 0.383102
+## [1] 0.3824905
 ## 
 ## $mse
-## [1] 0.1353287
+## [1] 0.1366765
 ```
 
 .center[
@@ -2432,13 +2426,6 @@ Split the data into a training and test dataset.
 
 ```r
 require(rsample)
-```
-
-```
-## Loading required package: rsample
-```
-
-```r
 set.seed(1)
 data_split &lt;- initial_split(mtpl)
 mtpl_train &lt;- training(data_split)
@@ -2481,7 +2468,7 @@ gamma_loss &lt;- function(y_true, y_pred) {
 ]
 
 .pull-right[
-![](images/neural_networks_unnamed-chunk-126-1.png)&lt;!-- --&gt;
+![](Images/neural_networks_unnamed-chunk-126-1.png)&lt;!-- --&gt;
 
 ]
 

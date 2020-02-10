@@ -26,7 +26,7 @@ class: center, middle, inverse, title-slide
 <hr align='center' color='#116E8A' size=1px width=97%>
 </html>
 ### Katrien Antonio, Jonas Crevecoeur and Roel Henckaerts
-### <a href="https://katrienantonio.github.io">NN ML workshop</a> | 2020-02-10
+### <a href="https://katrienantonio.github.io">NN ML workshop</a> | 2020-02-12
 
 ---
 
@@ -249,7 +249,7 @@ dfr &lt;- tibble(
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-6-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-6-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -287,7 +287,7 @@ print(fit)
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -324,7 +324,7 @@ print(fit)
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-12-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-12-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -361,7 +361,7 @@ print(fit)
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -398,7 +398,7 @@ print(fit)
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -517,7 +517,7 @@ fit &lt;- rpart(formula = y ~ x,
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-21-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-21-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -545,7 +545,7 @@ fit &lt;- rpart(formula = y ~ x,
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-23-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-23-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -611,7 +611,7 @@ fit &lt;- rpart(formula = y ~ x,
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-26-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-26-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -684,7 +684,7 @@ se_rule &lt;- min(which(cpt[, 'xerror'] &lt;
 ```r
 *fit_1 &lt;- prune(fit, cp = cpt[min_xerr, 'CP'])
 ```
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-32-1.png" width="85%" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-32-1.png" width="85%" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -693,7 +693,7 @@ se_rule &lt;- min(which(cpt[, 'xerror'] &lt;
 ```r
 *fit_2 &lt;- prune(fit, cp = cpt[se_rule, 'CP'])
 ```
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-35-1.png" width="85%" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-35-1.png" width="85%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -746,13 +746,13 @@ class: clear
 .pull-left[
 .hi-pink[Q2a]: optimal tree via .KULbginline[min CV error]
 
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-39-1.png" width="85%" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-39-1.png" width="85%" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
 .hi-pink[Q2b]: optimal tree with via .KULbginline[one SE rule]
 
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-41-1.png" width="85%" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-41-1.png" width="85%" style="display: block; margin: auto;" /&gt;
 ]
 
 &lt;br&gt;
@@ -784,7 +784,7 @@ dfc &lt;- tibble(
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-43-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-43-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -821,7 +821,7 @@ print(fit)
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-45-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-45-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 ]
 
 
@@ -859,7 +859,7 @@ print(fit)
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-47-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-47-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -883,7 +883,7 @@ fit &lt;- rpart(formula = y ~ x1 + x2,
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-49-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-49-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -909,7 +909,7 @@ fit &lt;- rpart(formula = y ~ x1 + x2,
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-51-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-51-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -976,7 +976,7 @@ fit &lt;- rpart(formula = y ~ x1 + x2,
 plotcp(fit)
 ```
 
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-53-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-53-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -1060,7 +1060,7 @@ class: clear
 ```r
 fit_1 &lt;- prune(fit, cp = cpt[min_xerr, 'CP'])
 ```
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-60-1.png" width="85%" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-60-1.png" width="85%" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -1069,7 +1069,7 @@ fit_1 &lt;- prune(fit, cp = cpt[min_xerr, 'CP'])
 ```r
 fit_2 &lt;- prune(fit, cp = cpt[se_rule, 'CP'])
 ```
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-62-1.png" width="85%" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-62-1.png" width="85%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -1292,7 +1292,7 @@ Try `rpart.plot` from the package .KULbginline[{rpart.plot}]
 # Fitting a simple tree to the MTPL data
 
 .center[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-73-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-73-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -1559,7 +1559,7 @@ fit &lt;- rpart(formula =
 plotcp(fit)
 ```
 
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-82-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-82-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -1594,7 +1594,7 @@ class: clear
 
 .hi-pink[Q4]: try to understand how the final model looks like. Can you make sense of it?
 .center[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-84-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-84-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -1656,7 +1656,7 @@ print(var_imp)
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-89-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-89-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -1689,7 +1689,7 @@ fit_srt %&gt;%
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-92-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-92-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -1710,7 +1710,7 @@ fit_srt %&gt;%
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-94-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-94-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -1739,12 +1739,12 @@ class:clear
 
 .pull-left[
 .hi-pink[Level in the bonus-malus scale]
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-95-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-95-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
 .hi-pink[Type of coverage]
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-96-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-96-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -1950,7 +1950,7 @@ On it's own, this is a .hi-pink[noisy prediction] with very .KULbginline[high va
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-102-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-102-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -1978,7 +1978,7 @@ Again, very .KULbginline[high variance] on it's own
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-104-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-104-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -2005,7 +2005,7 @@ In other words: .KULbginline[is variance reducing?]
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-106-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-106-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -2083,13 +2083,13 @@ class: clear
 
 .pull-left[
 Bagged ensemble with .hi-pink[B = 2]
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-110-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-110-1.png" style="display: block; margin: auto;" /&gt;
 
 ]
 
 .pull-right[
 Bagged ensemble with .hi-pink[B = 3]
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-111-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-111-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 .KULbginline[Little] variance reduction might be visible, but we clearly need .hi-pink[a lot more trees]. Let's use the {ipred} package for this!
@@ -2193,7 +2193,7 @@ pred &lt;- predict(fit, dfr)
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-117-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-117-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -2226,7 +2226,7 @@ for(i in 1:length(nbags)){
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-119-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-119-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -2286,7 +2286,7 @@ pred &lt;- predict(fit,
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-122-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-122-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -2328,11 +2328,11 @@ mtpl_b2 &lt;- mtpl_trn %&gt;% dplyr::slice(bsample_2)
 # Pretty similar, right?!
 
 .pull-left[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-125-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-125-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-126-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-126-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -2709,7 +2709,7 @@ do.call(rbind, var_imps) %&gt;%
 
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-138-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-138-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -2741,7 +2741,7 @@ fit_rf %&gt;%
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-141-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-141-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -2762,7 +2762,7 @@ fit_rf %&gt;%
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-143-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-143-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -2955,7 +2955,10 @@ pred &lt;- predict(fit,
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-148-1.gif" style="display: block; margin: auto;" /&gt;
+
+```
+## NULL
+```
 ]
 
 ---
@@ -2984,7 +2987,10 @@ Applying shrinkage .KULbginline[slows down] the learning process &lt;br&gt;
 
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-150-1.gif" style="display: block; margin: auto;" /&gt;
+
+```
+## NULL
+```
 ]
 
 
@@ -3014,7 +3020,10 @@ Increasing tree .KULbginline[depth] allows more versatile splits &lt;br&gt;
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-152-1.gif" style="display: block; margin: auto;" /&gt;
+
+```
+## NULL
+```
 ]
 
 ---
@@ -3041,7 +3050,10 @@ fit &lt;- gbm(formula = y ~ x,
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-154-1.gif" style="display: block; margin: auto;" /&gt;
+
+```
+## NULL
+```
 ]
 
 ---
@@ -3068,7 +3080,7 @@ fit &lt;- gbm(formula = y ~ x,
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-156-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-156-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -3143,12 +3155,12 @@ class: clear
 
 .pull-left[
 The predicted .hi-pink[probabilities] 
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-159-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-159-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
 The predicted .hi-pink[classes]
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-160-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-160-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -3181,7 +3193,7 @@ Another option is to set `cv.folds&gt;0` and track the .KULbginline[cross-valida
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-162-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-162-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -3196,17 +3208,28 @@ fit %&gt;%
 ```
 
 ```
-##   SplitVar SplitCodePred LeftNode RightNode MissingNode ErrorReduction Weight Prediction
-## 0        2     6.5000000        1         5           9        141.227  97928 -0.0041101
-## 1        2     1.5000000        2         3           4         22.126  76434 -0.0185522
-## 2       -1    -0.0286072       -1        -1          -1          0.000  53138 -0.0286072
-## 3       -1     0.0043830       -1        -1          -1          0.000  23296  0.0043830
-## 4       -1    -0.0185522       -1        -1          -1          0.000  76434 -0.0185522
-## 5        2     9.5000000        6         7           8         10.646  21494  0.0472469
-## 6       -1     0.0330019       -1        -1          -1          0.000   9762  0.0330019
-## 7       -1     0.0590999       -1        -1          -1          0.000  11732  0.0590999
-## 8       -1     0.0472469       -1        -1          -1          0.000  21494  0.0472469
-## 9       -1    -0.0041101       -1        -1          -1          0.000  97928 -0.0041101
+##   SplitVar SplitCodePred LeftNode RightNode MissingNode ErrorReduction Weight
+## 0        2     6.5000000        1         5           9        141.227  97928
+## 1        2     1.5000000        2         3           4         22.126  76434
+## 2       -1    -0.0286072       -1        -1          -1          0.000  53138
+## 3       -1     0.0043830       -1        -1          -1          0.000  23296
+## 4       -1    -0.0185522       -1        -1          -1          0.000  76434
+## 5        2     9.5000000        6         7           8         10.646  21494
+## 6       -1     0.0330019       -1        -1          -1          0.000   9762
+## 7       -1     0.0590999       -1        -1          -1          0.000  11732
+## 8       -1     0.0472469       -1        -1          -1          0.000  21494
+## 9       -1    -0.0041101       -1        -1          -1          0.000  97928
+##   Prediction
+## 0 -0.0041101
+## 1 -0.0185522
+## 2 -0.0286072
+## 3  0.0043830
+## 4 -0.0185522
+## 5  0.0472469
+## 6  0.0330019
+## 7  0.0590999
+## 8  0.0472469
+## 9 -0.0041101
 ```
 
 * Does not look that .hi-pink[pretty] right?!
@@ -3338,7 +3361,7 @@ fit_gbm &lt;- gbm(formula = nclaims ~
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-171-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-171-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -3370,7 +3393,7 @@ fit_gbm %&gt;%
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-174-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-174-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -3392,7 +3415,7 @@ fit_gbm %&gt;%
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-176-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-176-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -3634,7 +3657,7 @@ xgb.plot.multi.trees(
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-191-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-191-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -3676,18 +3699,30 @@ xval$evaluation_log %&gt;% print(digits = 5)
 ```
 
 ```
-##      iter train_poisson_nloglik_mean train_poisson_nloglik_std test_poisson_nloglik_mean test_poisson_nloglik_std
-##   1:    1                    0.88056                0.00024334                   0.88052                0.0012427
-##   2:    2                    0.84993                0.00039388                   0.85025                0.0012830
-##   3:    3                    0.82151                0.00038446                   0.82158                0.0012691
-##   4:    4                    0.79452                0.00025874                   0.79462                0.0012479
-##   5:    5                    0.76906                0.00039186                   0.76908                0.0012911
-##  ---                                                                                                             
-## 196:  196                    0.38078                0.00103761                   0.38188                0.0041933
-## 197:  197                    0.38078                0.00103699                   0.38188                0.0041922
-## 198:  198                    0.38077                0.00103592                   0.38188                0.0041895
-## 199:  199                    0.38077                0.00103708                   0.38188                0.0041893
-## 200:  200                    0.38077                0.00103712                   0.38188                0.0041919
+##      iter train_poisson_nloglik_mean train_poisson_nloglik_std
+##   1:    1                    0.88056                0.00024334
+##   2:    2                    0.84993                0.00039388
+##   3:    3                    0.82151                0.00038446
+##   4:    4                    0.79452                0.00025874
+##   5:    5                    0.76906                0.00039186
+##  ---                                                          
+## 196:  196                    0.38078                0.00103761
+## 197:  197                    0.38078                0.00103699
+## 198:  198                    0.38077                0.00103592
+## 199:  199                    0.38077                0.00103708
+## 200:  200                    0.38077                0.00103712
+##      test_poisson_nloglik_mean test_poisson_nloglik_std
+##   1:                   0.88052                0.0012427
+##   2:                   0.85025                0.0012830
+##   3:                   0.82158                0.0012691
+##   4:                   0.79462                0.0012479
+##   5:                   0.76908                0.0012911
+##  ---                                                   
+## 196:                   0.38188                0.0041933
+## 197:                   0.38188                0.0041922
+## 198:                   0.38188                0.0041895
+## 199:                   0.38188                0.0041893
+## 200:                   0.38188                0.0041919
 ```
 
 ---
@@ -3697,11 +3732,11 @@ xval$evaluation_log %&gt;% print(digits = 5)
 
 
 .pull-left[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-195-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-195-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-196-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-196-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -3781,16 +3816,16 @@ h2o.init(nthreads = -1, max_mem_size = '4g')
 
 ```
 ## R is connected to the H2O cluster: 
-##     H2O cluster uptime:         3 seconds 300 milliseconds 
+##     H2O cluster uptime:         4 seconds 522 milliseconds 
 ##     H2O cluster timezone:       Europe/Brussels 
 ##     H2O data parsing timezone:  UTC 
-##     H2O cluster version:        3.28.0.2 
-##     H2O cluster version age:    20 days  
-##     H2O cluster name:           H2O_started_from_R_Roel_vlt494 
+##     H2O cluster version:        3.28.0.1 
+##     H2O cluster version age:    1 month and 24 days  
+##     H2O cluster name:           H2O_started_from_R_roelhenckaerts_vlt494 
 ##     H2O cluster total nodes:    1 
 ##     H2O cluster total memory:   4.00 GB 
-##     H2O cluster total cores:    4 
-##     H2O cluster allowed cores:  4 
+##     H2O cluster total cores:    8 
+##     H2O cluster allowed cores:  8 
 ##     H2O cluster healthy:        TRUE 
 ##     H2O Connection ip:          localhost 
 ##     H2O Connection port:        54321 
@@ -3880,7 +3915,7 @@ h2o.ls()
 
 ```
 ##               key
-## 1 RTMP_sid_9f15_2
+## 1 RTMP_sid_88b2_2
 ## 2        mtpl.h2o
 ## 3       mtpl2.h2o
 ```
@@ -3896,7 +3931,7 @@ h2o.ls()
 
 ```
 ##               key
-## 1 RTMP_sid_9f15_2
+## 1 RTMP_sid_88b2_2
 ## 2        mtpl.h2o
 ```
 ]
@@ -3983,7 +4018,7 @@ mtpl_h2o[,'ageph'] %&gt;% h2o.hist
 ]
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-212-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-212-1.png" style="display: block; margin: auto;" /&gt;
 
 ]
 
@@ -4057,7 +4092,7 @@ by_r %&gt;% ggplot(aes(x = ageph, y = power)) +
 
 
 .pull-right[
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-215-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-215-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -4205,18 +4240,26 @@ print(gbm_perf)
 ##   -  col_sample_rate 
 ##   -  max_depth 
 ##   -  sample_rate 
-## Number of models: 7 
+## Number of models: 15 
 ## Number of failed models: 0 
 ## 
 ## Hyper-Parameter Search Summary: ordered by increasing residual_deviance
-##   col_sample_rate max_depth sample_rate        model_ids  residual_deviance
-## 1            0.75         3        0.75 gbm_grid_model_1 0.7482509206438585
-## 2             1.0         5         1.0 gbm_grid_model_5 0.7497538567606931
-## 3             0.5         3         1.0 gbm_grid_model_6 0.7501828776706148
-## 4            0.75         1         1.0 gbm_grid_model_2 0.7503135066816209
-## 5            0.75         5        0.75 gbm_grid_model_4 0.7521096138665183
-## 6             0.5         5         0.5 gbm_grid_model_3 0.7531107077788328
-## 7            0.75         5         1.0 gbm_grid_model_7 0.7610825837056191
+##    col_sample_rate max_depth sample_rate         model_ids  residual_deviance
+## 1              1.0         3        0.75  gbm_grid_model_6 0.7483224109021464
+## 2             0.75         3         1.0  gbm_grid_model_4 0.7483376045657987
+## 3              0.5         3         0.5  gbm_grid_model_9 0.7483859674340145
+## 4             0.75         3         0.5 gbm_grid_model_12 0.7485546404141132
+## 5              1.0         5         1.0 gbm_grid_model_11 0.7497755337249917
+## 6             0.75         1        0.75  gbm_grid_model_2 0.7502972631463636
+## 7             0.75         1         1.0  gbm_grid_model_5  0.750313506681621
+## 8              1.0         1         0.5  gbm_grid_model_1 0.7503426411884242
+## 9              0.5         5         1.0  gbm_grid_model_8 0.7505719421524515
+## 10             1.0         1         1.0 gbm_grid_model_14 0.7514703409014011
+## 11            0.75         5        0.75  gbm_grid_model_3 0.7521096138665182
+## 12             0.5         5         0.5  gbm_grid_model_7 0.7531107077788328
+## 13            0.75         5         0.5 gbm_grid_model_13 0.7561682603238689
+## 14             1.0         5         0.5 gbm_grid_model_10  0.756288221710228
+## 15             1.0         1        0.75 gbm_grid_model_15 0.7593597818112467
 ```
 
 ---
@@ -4233,9 +4276,9 @@ print(gbm_h2o@model[['model_summary']])
 ```
 ## Model Summary: 
 ##   number_of_trees number_of_internal_trees model_size_in_bytes min_depth
-## 1             500                      500               79102         3
+## 1             500                      500               78734         3
 ##   max_depth mean_depth min_leaves max_leaves mean_leaves
-## 1         3    3.00000          7          8     7.87600
+## 1         3    3.00000          7          8     7.81400
 ```
 
 ```r
@@ -4246,12 +4289,12 @@ print(gbm_h2o@model[['model_summary']])
 ```
 ## H2ORegressionMetrics: gbm
 ## 
-## MSE:  0.1305007
-## RMSE:  0.3612488
-## MAE:  0.2149038
-## RMSLE:  0.235823
-## Mean Residual Deviance :  0.7448572
-## R^2 :  0.01958949
+## MSE:  0.1305161
+## RMSE:  0.3612702
+## MAE:  0.2148986
+## RMSLE:  0.2358437
+## Mean Residual Deviance :  0.7449286
+## R^2 :  0.01947343
 ```
 
 ---
@@ -4276,12 +4319,12 @@ h2o.cbind(test_h2o,test_pred) %&gt;%
 
 ```
 ##   nclaims mean_predict
-## 1       0    0.1212257
-## 2       1    0.1437905
-## 3       2    0.1603233
-## 4       3    0.1764597
-## 5       4    0.1811591
-## 6       5    0.2058805
+## 1       0    0.1212263
+## 2       1    0.1438465
+## 3       2    0.1603747
+## 4       3    0.1759376
+## 5       4    0.1804276
+## 6       5    0.2084286
 ## 
 ## [6 rows x 2 columns]
 ```
@@ -4293,7 +4336,7 @@ h2o.cbind(test_h2o,test_pred) %&gt;%
 gbm_h2o %&gt;% h2o.varimp_plot
 ```
 
-&lt;img src="slide_deck_files/figure-html/unnamed-chunk-227-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="lecture_sheets_workshop_ML_Day_2_files/figure-html/unnamed-chunk-227-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -4429,12 +4472,12 @@ gbm_h2o %&gt;% h2o.performance(newdata = test_h2o)
 ```
 ## H2ORegressionMetrics: gbm
 ## 
-## MSE:  0.1305007
-## RMSE:  0.3612488
-## MAE:  0.2149038
-## RMSLE:  0.235823
-## Mean Residual Deviance :  0.7448572
-## R^2 :  0.01958949
+## MSE:  0.1305161
+## RMSE:  0.3612702
+## MAE:  0.2148986
+## RMSLE:  0.2358437
+## Mean Residual Deviance :  0.7449286
+## R^2 :  0.01947343
 ```
 ]
 
@@ -4482,12 +4525,12 @@ h2o.cbind(test_h2o,test_pred) %&gt;%
 
 ```
 ##   nclaims mean_predict
-## 1       0    0.1212257
-## 2       1    0.1437905
-## 3       2    0.1603233
-## 4       3    0.1764597
-## 5       4    0.1811591
-## 6       5    0.2058805
+## 1       0    0.1212263
+## 2       1    0.1438465
+## 3       2    0.1603747
+## 4       3    0.1759376
+## 5       4    0.1804276
+## 6       5    0.2084286
 ## 
 ## [6 rows x 2 columns]
 ```
@@ -4643,7 +4686,7 @@ dev_poiss(y = as.vector(train_h2o[,'nclaims']),
 
 ```
 ##       glm       gbm     stack 
-## 0.5370740 0.5331996 0.5334241
+## 0.5370740 0.5331996 0.5371947
 ```
 
 
@@ -4669,7 +4712,7 @@ dev_poiss(y = as.vector(test_h2o[,'nclaims']),
 
 ```
 ##       glm       gbm     stack 
-## 0.5304067 0.5296093 0.5300134
+## 0.5304067 0.5296093 0.5343435
 ```
 ]
 

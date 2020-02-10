@@ -70,6 +70,8 @@ Topics include:
 - feature pre-processing steps, including setting up a blue-print with `recipes`
 - regression models, including regularization: `lm()`, `glm()`, `mgcv()`, `glmnet()`
 
+Download lecture sheets in [pdf](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.pdf). 
+
 ##### Day 2: Tree-based machine learning methods
 
 Topics include: 

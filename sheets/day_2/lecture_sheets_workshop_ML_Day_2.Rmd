@@ -2,7 +2,7 @@
 title: "Machine learning in R - Day 2"
 subtitle: "Hands-on workshop at Nationale Nederlanden <html><div style='float:left'></div><hr align='center' color='#116E8A' size=1px width=97%></html>"
 author: "Katrien Antonio, Jonas Crevecoeur and Roel Henckaerts"
-date: "[NN ML workshop](https://katrienantonio.github.io) | `r Sys.Date()`"
+date: "[NN ML workshop](https://katrienantonio.github.io) | 2020-02-12"
 output:
   xaringan::moon_reader:
     css: [default, css/metropolis.css, css/metropolis-fonts.css, css/my-css.css]

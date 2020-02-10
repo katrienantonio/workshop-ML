@@ -105,9 +105,10 @@ ames %>%
 
 ## ----distribution-response-ames----------------------------------------------------------------
 g_dens <- ggplot(ames, aes(x = Sale_Price)) + theme_bw() +
-  geom_density(data = ames, col = KULbg, fill = KULbg, alpha = .5) +
+  geom_density(col = KULbg, fill = KULbg, alpha = .5) +
   ggtitle("Ames housing data - sale prices")
 g_dens
+
 
 ## ----Your Turn: solution-----------------------------------------------------------------------
 g_hist_age <- ggplot(data = mtpl, aes(ageph)) + theme_bw() + 
@@ -133,3 +134,4 @@ freq_by_age <- mtpl %>%
 ggplot(freq_by_age, aes(x = ageph, y = emp_freq)) + theme_bw() +
   geom_bar(stat = "identity", color = KULbg, fill = KULbg, alpha = .5) +
   ggtitle("MTPL - empirical claim freq per age policyholder")
+

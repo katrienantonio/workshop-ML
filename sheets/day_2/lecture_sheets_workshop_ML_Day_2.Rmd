@@ -186,11 +186,15 @@ name: intro
 
 > This definition goes all the way back to [Arthur Samuel](https://en.wikipedia.org/wiki/Arthur_Samuel), who coined the term "machine learning" in 1959.
 
+--
+
 * .KULbginline[Tree-based ML] makes use of a .hi-pink[tree] as building block for the mathematical model.
 
 ```{r tree_based, out.width='70%', echo=FALSE}
 knitr::include_graphics('img/tree_based.png')
 ```
+
+--
 
 * What is a .KULbginline[tree]?
 
@@ -215,9 +219,15 @@ background-size: contain
 
 * Top of the tree contains all available training observations: .hi-pink[root node]
 
-* Partition the data into homogeneous non-overlapping subgroups: .hi-pink[nodes]
+--
+
+* .KULbginline[Partition] the data into homogeneous non-overlapping subgroups: .hi-pink[nodes]
+
+--
 
 * Subgroups formed via .KULbginline[simple yes-no questions]
+
+--
 
 * Tree predicts the output in a .hi-pink[leaf node] as follows:
   + average of the response for regression
@@ -229,7 +239,7 @@ background-size: contain
 
 * Top of the tree contains all available training observations: .hi-pink[root node]
 
-* Partition the data into homogeneous non-overlapping subgroups: .hi-pink[nodes]
+* .KULbginline[Partition] the data into homogeneous non-overlapping subgroups: .hi-pink[nodes]
 
 ```{r out.width= "50%", out.extra='style="float:right; padding:10px"', echo=FALSE}
 knitr::include_graphics("img/tree_example.jpg")
@@ -254,18 +264,30 @@ knitr::include_graphics("img/tree_legend.jpg")
 
 * Golden standard is the .hi-pink[c]lassification .hi-pink[a]nd .hi-pink[r]egression .hi-pink[t]ree algorithm: .KULbginline[CART]
 
+--
+
 * CART uses .KULbginline[binary recursive partitioning] to split the data in subgroups
 
+--
+
 * At each node, search for the best feature to partition the data in two regions: R<sub>1</sub> and R<sub>2</sub> (hence, .hi-pink[binary])
+
+--
 
 * .KULbginline[ Best?] Minimize the overall loss between observed responses and leaf node prediction
   + overall loss = loss in R<sub>1</sub> + loss in R<sub>2</sub>
   + regression: mean squared/absolute error, deviance,...
   + classification: cross-entropy, gini index,...
 
+--
+
 * After splitting the data, this process is repeated for region R<sub>1</sub> and R<sub>2</sub> separately (hence, .hi-pink[recursive])
 
+--
+
 * Repeat until .hi-pink[stopping criterion] is satisfied, e.g., maximum depth of a tree or minimum loss improvement
+
+--
 
 * CART is implemented in the {rpart} package .font200[`r fa(name = 'box-open', fill = KULbg)`]
 
@@ -551,7 +573,7 @@ plot_pred_reg(dt = dfr, predict(fit, dfr))
   + .hi-pink[shallow] tree: bias .font150[`r fa(name = 'arrow-circle-up', fill = KULbg)`] and variance .font150[`r fa(name = 'arrow-circle-down', fill = KULbg)`] <br>
   ---> .KULbginline[underfit]
   + .hi-pink[deep] tree: bias .font150[`r fa(name = 'arrow-circle-down', fill = KULbg)`] and variance .font150[`r fa(name = 'arrow-circle-up', fill = KULbg)`] <br>
-  ---> ..KULbginline[overfit]
+  ---> .KULbginline[overfit]
   + need to find the right .KULbginline[balance] .font150[`r fa(name = 'balance-scale', fill = KULbg)`]
 
 <br>
@@ -560,6 +582,26 @@ plot_pred_reg(dt = dfr, predict(fit, dfr))
   1. fit an overly complex .hi-pink[deep tree]
   2. .KULbginline[prune] the tree to find the .hi-pink[optimal subtree]
 ]
+
+
+---
+#  How deep should a tree be?
+
+.pull-left[
+* Remember the .KULbginline[bias-variance tradeoff]:
+  + .hi-pink[shallow] tree: bias .font150[`r fa(name = 'arrow-circle-up', fill = KULbg)`] and variance .font150[`r fa(name = 'arrow-circle-down', fill = KULbg)`] <br>
+  ---> .KULbginline[underfit]
+  + .hi-pink[deep] tree: bias .font150[`r fa(name = 'arrow-circle-down', fill = KULbg)`] and variance .font150[`r fa(name = 'arrow-circle-up', fill = KULbg)`] <br>
+  ---> .KULbginline[overfit]
+  + need to find the right .KULbginline[balance] .font150[`r fa(name = 'balance-scale', fill = KULbg)`]
+
+<br>
+
+* Typical approach to get the right fit:
+  1. fit an overly complex .hi-pink[deep tree]
+  2. .KULbginline[prune] the tree to find the .hi-pink[optimal subtree]
+]
+
 
 .pull-right[
 .KULbginline[How to prune?]
@@ -1025,6 +1067,24 @@ D^{\textrm{Poi}} = \frac{2}{n} \sum_{i=1}^{n} \color{#FFA500}{y}_i \cdot \ln \fr
 \end{eqnarray*}$$
 
   * with $\textrm{expo}$ the exposure measure.
+  ]
+  
+---
+
+# Claim frequency prediction with the MTPL data
+
+.pull-left[
+* Classic approach for .hi-pink[claim frequency]: .KULbginline[Poisson GLM]
+
+* How to deal with claim counts in a decision tree?
+
+* Use the .KULbginline[Poisson deviance] as .hi-pink[loss function]:
+ 
+$$\begin{eqnarray*}
+D^{\textrm{Poi}} = \frac{2}{n} \sum_{i=1}^{n} \color{#FFA500}{y}_i \cdot \ln \frac{\color{#FFA500}{y}_i}{\textrm{expo}_i \cdot \hat{\color{#3b3b9a}{f}}(\color{#e64173}{x}_i)} - \{\color{#FFA500}{y}_i - \textrm{expo}_i \cdot \hat{\color{#3b3b9a}{f}}(\color{#e64173}{x}_i)\},
+\end{eqnarray*}$$
+
+  * with $\textrm{expo}$ the exposure measure.
 
 <br>
 
@@ -1406,11 +1466,11 @@ rpart.plot(fit_srt, type = 0, extra = 0, cex = 1.1)
 * .KULbginline[Feature importance]
   + identify the most .hi-pink[important] features
   + implemented in the package {vip} .font150[`r fa(name = 'box-open', fill = KULbg)`]
-  
+
 * .KULbginline[Partial dependence plot]
   + measure the .hi-pink[marginal effect] of a feature
   + implemented in the package {pdp} .font150[`r fa(name = 'box-open', fill = KULbg)`]
-  
+
 * Good source on interpretable machine learning: [ebook](https://christophm.github.io/interpretable-ml-book/)
 ]
 
@@ -1595,15 +1655,21 @@ fit_srt %>%
 
 * Remember: .hi-pink[error = bias + variance]
 
+--
+
 * Good .KULbginline[predictive performance] requires low bias .hi-pink[AND] low variance
 
+--
+
 * Two popular .hi-pink[ensemble] algorithms (that can be applied to any type of model, not just trees)
+
+--
 
 1. .KULbginline[Bagging]:
   + low .hi-pink[bias] via detailed individual models
   + low .hi-pink[variance] via averaging of those models
   + .KULbginline[random forest] is a modification on bagging for trees to improve the variance reduction
-  
+
 2. .KULbginline[Boosting]
   + low .hi-pink[variance] via simple individual models
   + low .hi-pink[bias] by incrementing the model sequentially
@@ -1639,6 +1705,26 @@ name: bag_rf
 class: clear
 background-image: url(img/bagging.jpg)
 background-size: contain
+
+---
+
+# Bagging
+
+.pull-left[
+* .KULbginline[Bagging] stands for .hi-pink[B]ootstrap .hi-pink[AGG]regat.hi-pink[ING]
+
+* Simple idea:
+  + build a lot of different .hi-pink[base learners] on bootstrapped samples of the data
+  + .hi-pink[combine] their predictions
+
+* Model .KULbginline[averaging] helps to:
+  + .hi-pink[reduce] variance
+  + .hi-pink[avoid] overfitting
+
+* Bagging works best for .KULbginline[base learners] with:
+  + .hi-pink[low bias] and .hi-pink[high variance]
+  + for example: deep decison trees
+]
 
 ---
 
@@ -1922,6 +2008,23 @@ bagging(formula, data, control = rpart.control(___),
   + the OOB error comes .KULbginline[for free] with bagging
 ]
 
+---
+
+
+# Out-of-bag (OOB) error
+
+.pull-left[
+* Bootstrap samples .KULbginline[with] replacement
+
+* Some observations .hi-pink[not present] in a bootstrap sample
+  + they are called the .KULbginline[out-of-bag] observations
+  + use those to calculate the out-of-bag (OOB) error
+  + measures .hi-pink[hold-out] error like cross-validation
+
+* Advantage of OOB over cross-validation?
+  + the OOB error comes .KULbginline[for free] with bagging
+]
+
 .pull-right[
 * Is it a .hi-pink[representative] sample though?
 ```{r}
@@ -2152,19 +2255,29 @@ rpart.plot(fit_b2, cex = 1.4, extra = 0)
 # Problem of dominant features
 
 * A downside of bagging is that .KULbginline[dominant features] can cause individual trees to have a .hi-pink[similar structure]
+  
   + known as .KULbginline[tree correlation]
 
+--
+
 * Remember the .hi-pink[feature importance] results earlier? 
+  
   + `bm` is a very dominant variable
   + `ageph` was rather important
   + `power` also, but to a lesser degree
-  
+
+--
+
 * Problem?
+  
   + bagging gets its predictive performance from .hi-pink[variance reduction]
   + however, this reduction .font150[`r fa(name = 'arrow-circle-down', fill = KULbg)`] when tree correlation .font150[`r fa(name = 'arrow-circle-up', fill = KULbg)`]
   + dominant features therefore .hi-pink[hurt] the preditive performance of a bagged ensemble
 
+--
+
 * Solution?
+  
   + .KULbginline[Random forest]
   
 ---
@@ -2173,14 +2286,22 @@ rpart.plot(fit_b2, cex = 1.4, extra = 0)
 
 * .KULbginline[Random forest] is a modification on bagging to get an ensemble of .hi-pink[de-correlated] trees
 
+--
+
 * Process is very similar to bagging, with one small .KULbginline[trick]:
   + before each split, select a .hi-pink[subset] of features at random as candidate features for splitting
   + this essentially .hi-pink[decorrelates] the trees in the ensemble, improving predictive performance
   + the number of candidates is typically considered a .hi-pink[tuning parameter]
-  
+
+--
+
 * .KULbginline[Bagging] introduces randomness in the .hi-pink[rows] of the data
 
+--
+
 * .KULbginline[Random forest] introduces randomness in the .hi-pink[rows] and .hi-pink[columns] of the data
+
+--
 
 * Many .hi-pink[packages] available, but a couple of popular ones .font150[`r fa(name = 'box-open', fill = KULbg)`]
   + {randomForest}: standard for regression and classification, but not very fast
@@ -2343,12 +2464,18 @@ The .hi-pink[Mean Squared Error], but does that make sense for us?
 # Random forest for actuaries
   
 * All available random forest packages only support .KULbginline[standard regression] based on the .hi-pink[Mean Squared Error]
+  
   + no Poisson, Gamma or log-normal loss functions available
   + bad news for actuaries .font150[`r fa(name = 'sad-tear', fill = KULbg)`]
-  
+
+--
+
 * Luckily, there exists a .KULbginline[solution] to this problem
+
+--
   
 * The {distRforest} package on my [GitHub]([https://github.com/henckr/distRforest) .font150[`r fa(name = 'github', fill = KULbg)`]
+  
   + based on {rpart} which supports .hi-pink[Poisson] regression (as we have seen before)
   + extended to support .hi-pink[Gamma] and .hi-pink[log-normal] deviance as loss function
   + extended to support .hi-pink[random forest] generation
@@ -2555,6 +2682,8 @@ background-size: contain
 
 * Similar to bagging, boosting is a .hi-pink[general technique] to create an .KULbginline[ensemble] of any type of base learner
 
+--
+
 * However, there are some .KULbginline[key differences] between both approaches:
 
 .pull-left[
@@ -2611,6 +2740,8 @@ knitr::include_graphics("img/learning_rate.png")
 <br> Figure 12.4 from Bradley Boehmke's [HOML](https://bradleyboehmke.github.io/HOML/gbm.html)
 ]
 
+--
+
 * .KULbginline[Subsampling] allows to escape plateaus or local minima for .hi-pink[non-convex] loss functions
 
 ---
@@ -2619,13 +2750,19 @@ knitr::include_graphics("img/learning_rate.png")
 
 * .KULbginline[Initialize] the model fit with a global average and calculate .hi-pink[pseudo-residuals]
 
+--
+
 * Do the following .KULbginline[B] times:
   + fit a tree of a pre-specified depth to the .hi-pink[pseudo-residuals]
   + .KULbginline[update] the model fit and pseudo-residuals with a .hi-pink[shrunken] version 
   + shrinkage to slow down learning and .hi-pink[prevent] overfitting
-  
+
+--
+
 * The model fit after B iterations is the .KULbginline[end product]
-  
+
+--
+
 * Some .KULbginline[popular] packages for stochastic gradient boosting .font150[`r fa(name = 'box-open', fill = KULbg)`]
   + {gbm}: .hi-pink[standard] for regression and classification, but not the fastest
   + {gbm3}: .hi-pink[faster] version of {gbm} via parallel processing, but not backwards compatible
@@ -2664,12 +2801,18 @@ gbm(formula, data, distribution, var.monotone, n.trees,
 
 * A lot of .hi-pink[parameters] available to .KULbginline[tweak] the GBM
 
+--
+
 * Some have a .KULbginline[big impact] on the performance and should therefore be .hi-pink[properly tuned]
   + `n.trees`: depends very much on the .hi-pink[use case], ranging from 100's to 10 000's
   + `interaction.depth`: .hi-pink[low] values are preferred for boosting to obtain weak base learners
   + `shrinkage`: typically set to the lowest possible value that is .hi-pink[computationally] feasible
 
+--
+
 * .hi-pink[Rule of thumb]: if `shrinkage` .font150[`r fa(name = 'arrow-circle-down', fill = KULbg)`] then `ntrees` .font150[`r fa(name = 'arrow-circle-up', fill = KULbg)`]
+
+--
 
 * Let's have a look at the .KULbginline[impact] of these .hi-pink[tuning parameters]
 
@@ -2979,12 +3122,16 @@ ggplot(data.frame(x = 1:200, y = oob_evo), aes(x = x, y = y)) + geom_point() + l
 ```{r}
 fit %>% 
   pretty.gbm.tree(i.tree = 1) %>% #<<
-  print(digits = 5)
+  print(digits = 4)
 ```
 
 * Does not look that .hi-pink[pretty] right?!
-  
+
+--
+
 * Even if this was a nicer representation, .KULbginline[single trees] are .hi-pink[not] going to carry much information
+
+--
 
 * Luckily we know some .hi-pink[tools] to get a better .KULbginline[understanding] of the GBM fit!
   
@@ -3051,7 +3198,7 @@ for(i in seq_len(nrow(tgrid))){
   # Retrieve the optimal number of trees
   opt <- which.max(cumsum(fit$oobag.improve)) #<<
   tgrid$ntrees[i] <- opt
-  tgrid$oob_err[i] <- cumsum(fit$oobag.improve[1:opt])
+  tgrid$oob_err[i] <- sum(fit$oobag.improve[1:opt])
 }
 ```
 ]
@@ -3173,7 +3320,11 @@ fit_gbm %>%
 
 * .KULbginline[XGBoost] stands for e.hi-pink[X]treme .hi-pink[G]radient .hi-pink[Boost]ing
 
+--
+
 * Optimized gradient boosting library: efficient, flexible and portable across multiple languages
+
+--
 
 * XGBoost follows the same general boosting approach as GBM, but adds some .KULbginline[extra elements]:
   + .hi-pink[regularization]: extra protection against overfitting (see Lasso and glmnet on Day 1)
@@ -3181,11 +3332,15 @@ fit_gbm %>%
   + .hi-pink[parallel processing]: can deliver huge speed gains
   + different .hi-pink[base learners]: boosted GLMs are a possibility
   + multiple .hi-pink[languages]: implemented in R, Python, C++, Java, Scala and Julia
-  
+
+--
+
 * XGBoost also allows to .KULbginline[subsample columns] in the data, much like the random forest did
   + GBM only allowed subsampling of rows
   + XGBoost therefore .hi-pink[unites] boosting and random forest to some extent
-  
+
+--
+
 * Very .KULbginline[flexible] method with many many parameters, full list can be found [here](https://xgboost.readthedocs.io/en/latest/parameter.html)  
 
 ---
@@ -3222,6 +3377,8 @@ xgb.DMatrix(data, info = list())
 
 * `data`: a `matrix` object
 * `info`: a named list of additional information
+
+--
 
 ```{r, cache=FALSE}
 # Features go into the data argument (needs to be converted to a matrix)
@@ -3513,14 +3670,22 @@ name: h2o
 
 * .KULbginline[H2O] is a popular open source [platform](https://www.h2o.ai) for .hi-pink[machine learning]
 
+--
+
 * Able to handle .KULbginline[big data] thanks to .hi-pink[distributed in-memory compression]
+
+--
 
 * Designed to run in standalone mode, on Hadoop, or within a Spark Cluster
   + easy to test code locally and then .hi-pink[scale up] to a big cluster
 
+--
+
 * Interfaces for many programming languages
   + .hi-pink[R], Python, Scala, Java, JSON, and CoffeeScript/JavaScript
   + we will use the .KULbginline[{h2o}] package in R .font150[`r fa(name = 'box-open', fill = KULbg)`]
+
+--
 
 * Includes many common machine learning .KULbginline[algorithms]:
   + generalized linear models
@@ -3536,6 +3701,9 @@ name: h2o
 ```{r, results='hide', cache=FALSE}
 h2o.init(nthreads = -1, max_mem_size = '4g')
 ```
+
+--
+
 * You can check the cluster .hi-pink[info] and .hi-pink[status] at any time via `h2o.clusterInfo` and `h2o.clusterStatus`
 ```{r, echo=FALSE, output.lines=14}
 h2o.clusterInfo()
@@ -3555,11 +3723,15 @@ mtpl_h2o <- h2o.uploadFile(path = mtpl_path,
                            destination_frame = 'mtpl.h2o')
 ```
 
+--
+
 * Your data is now an .KULbginline[H2O Frame]:
 
 ```{r}
 mtpl_h2o %>% class
 ```
+
+--
 
 * Adding a .hi-pink[new column] to an H2O Frame:
 
@@ -3620,6 +3792,8 @@ h2o.ls()
 mtpl_h2o[,'ageph'] %>% quantile # on H2O object
 mtpl_r[,'ageph'] %>% quantile # on R object
 ```
+
+--
 
 * Others .KULbginline[do not work] and have an .hi-pink[H2O variant]: <br>
 .pull-left[
@@ -3744,6 +3918,9 @@ mtpl_split <- mtpl_h2o %>%  h2o.splitFrame(ratios = 0.7,
                                                                   'test.h2o'),
                                            seed = 54321)
 ```
+
+--
+
 Retrieve the .KULbginline[training] data from the .hi-pink[1st] list element and the .KULbginline[test] data from the .hi-pink[2nd] one:
 ```{r, cache=FALSE}
 train_h2o <- mtpl_split[[1]]
@@ -3759,13 +3936,19 @@ test_h2o %>%  dim
 # Model building in H2O
 
 * H2O supports a .hi-pink[diverse] set of .KULbginline[algorithms], also those discussed so far:
+ 
   + `h2o.glm`, `h2o.randomForest`, `h2o.gbm`, `h2o.xgboost`
   + sidenote: Poisson loss function is .hi-pink[not] available for the random forest
-  
+
+--
+
 * The implementations are very .KULbginline[flexible], resulting in .hi-pink[many] tuning parameters
+  
   + full .hi-pink[Cartesian] grid searches are not always computationally feasible
   + H2O therefore also implements .hi-pink[random] grid searches with early stopping measures
-  
+
+--
+
 .pull-left[
 * .KULbginline[Cartesian grid search]:
 
@@ -3794,6 +3977,8 @@ gbm_grid <- list(
   )
 ```
 
+--
+
 Define some .KULbginline[settings] for the grid search as a .hi-pink[list]:
 ```{r}
 gbm_settings <- list(
@@ -3804,6 +3989,8 @@ gbm_settings <- list(
   max_runtime_secs = 10*60
   )
 ```
+
+--
 
 * Note that we implement two .KULbginline[early stopping] measures:
   + maximum .hipink[runtime] of 5 minutes .KULbginline[+] stop if the .hi-pink[deviance improvement] did not exceed 0.001 in 10 consecutive rounds
@@ -4017,6 +4204,8 @@ h2o.cbind(test_h2o,test_pred) %>%
 ```
 ]
 
+--
+
 <br>
 We now have two models, a GLM and a GBM, so which one do we .hi-pink[choose]? <br>
 .KULbginline[Do we have to choose?]
@@ -4035,16 +4224,28 @@ background-size: contain
 
 * .KULbginline[Stacking] (or stacked generalization) takes .hi-pink[ensembling] to a whole new level
 
+--
+
 * Training a new learning algorithm to .KULbginline[combine] the predictions of several .hi-pink[base learners]
 
+--
+
 * .KULbginline[Sounds familiar?!]
-  + basically what a random forest or GBM do with trees as base learners
   
+  + basically what a random forest or GBM do with trees as base learners
+
+--
+
 * Stacking uses random forests, GBMs and other models as base learners
+
+--
 
 * A meta algorithm, called the .KULbginline[super learner], combines this diverse group of strong learners
 
+--
+
 * A stacked ensemble performs .hi-pink[at least as good] as the best base learner
+  
   + this holds on the training data
   + not necessarily also true on the test data
   + .font150[`r fa(name = 'bullhorn', fill = KULbg)`] beware of .hi-pink[overfitting]
@@ -4058,6 +4259,8 @@ background-size: contain
 ```{r, out.width='70%', echo=FALSE}
 knitr::include_graphics('img/stacking_cv.png')
 ```
+
+--
 
 * This puts some .KULbginline[requirements] on the training of the .hi-pink[individual] base learners:
   + trained on the same training set
@@ -4121,9 +4324,14 @@ stack_gbm <- h2o.gbm(
 
 * .hi-pink[Combine] the GLM and GBM predictions with a .KULbginline[super learner]
 
+--
+
 * The options for the super learner .hi-pink[algorithm] are:
-  + `glm`, `gbm`, `drf` and `deeplearning`
   
+  + `glm`, `gbm`, `drf` and `deeplearning`
+
+--
+
 ```{r, results='hide'}
 stack_ens <- h2o.stackedEnsemble(
   training_frame = train_h2o,
@@ -4183,7 +4391,7 @@ dev_poiss(y = as.vector(test_h2o[,'nclaims']),
 ]
 
 
-.font200[`r fa(name = 'bullhorn', fill = KULbg)`] Note that you can still .hi-pink[overfit] on the test data, so .KULbginline[tuning] of the super learner is adviced!
+.font200[`r fa(name = 'bullhorn', fill = KULbg)`] Note that .KULbginline[tuning] of the .hi-pink[super learner] is adviced!
 
 
 ---
@@ -4191,15 +4399,22 @@ dev_poiss(y = as.vector(test_h2o[,'nclaims']),
 # Other forms of stacking
 
 * Stacking .KULbginline[existing models]
+  
   + train some .hi-pink[different types] of base learners and combine them with a super learner
   + (what we did so far)
-  
+
+--
+
 * Stacking a .KULbginline[grid search]
+  
   + combine multiple base learners of the .hi-pink[same type]
   + instead of choosing the one optimal combination of tuning parameters, stack the .hi-pink[best n ones]
   + most effective when the leading combinations show high variability
-  
+
+--
+
 * .KULbginline[Automated] machine learning
+  
   + automated search across a .hi-pink[variety] of tuning parameter settings for many .hi-pink[different] base learners
   + H2O implements .hi-pink[AutoML] via `h2o.automl`
   + current base learners: (extremely-randomized) random forest, GBM and DNN
@@ -4223,7 +4438,7 @@ class: clear
 --
 
 .right-column[
-.KULbginline[That's a wrap] on .hi-pink[everything] for today. Ready to shutdown.
+.KULbginline[That's all folks] for .hi-pink[today]. Ready to shutdown.
 ```{r,eval=FALSE}
 h2o.shutdown()
 ```

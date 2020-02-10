@@ -17,7 +17,6 @@ test_1  <- ames[-index_1, ]
 
 
 ## ----------------------------------------------------------------------------------------------
-library(caret) 
 set.seed(123)  
 index_2 <- caret::createDataPartition(
   y = ames$Sale_Price,  
@@ -28,7 +27,6 @@ test_2  <- ames[-index_2, ]
 
 
 ## ----------------------------------------------------------------------------------------------
-library(rsample)
 set.seed(123) 
 split_1  <- rsample::initial_split(ames, prop = 0.7)  
 train_3  <- training(split_1) 
@@ -78,21 +76,25 @@ df <- tibble::tibble(
   x = runif(n, min = -2, max = 2),
   y = rnorm(n, mean = 1 + 2*x + x^2, sd = 1)
 )
+
 p <- ggplot(df, aes(x, y)) + 
   geom_point(alpha = 0.3) +  
   theme_bw()
-p1 <- p + 
+
+p_1 <- p + 
   geom_smooth(method = "lm", formula = y ~ x, se = FALSE, size = 1.5, color = KULbg) +
   ggtitle("Underfitting")
-p2 <- p + 
+
+p_2 <- p + 
   geom_smooth(method = "lm", formula = y ~ x + I(x^2), se = FALSE, size = 1.5, color = KULbg) +
   ggtitle("Just right?")
-p3 <- p + 
+
+p_3 <- p + 
   geom_smooth(method = "loess", span = 0.1, se = FALSE, size = 1.5, color = KULbg) +
   ggtitle("Overfitting")
 
 
-gridExtra::grid.arrange(p1, p2, p3, nrow = 1)
+gridExtra::grid.arrange(p_1, p_2, p_3, nrow = 1)
 
 
 ## ----bias-variance-knn-------------------------------------------------------------------------

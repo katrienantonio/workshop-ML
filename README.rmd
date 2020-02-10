@@ -37,7 +37,7 @@ Course materials will be posted in the week before the workshop.
 
 <p align="justify">Leaving this workshop, you should have a firm grasp of the working principles of a variety of machine learning methods and be able to explore their use in practical settings. Moreover, you should have acquired the fundamental insights to explore some other methods on your own.</p> 
 
-## Schedule
+## Schedule and Course Material
 
 The detailed schedule is subject to small changes. 
 
@@ -49,12 +49,13 @@ The detailed schedule is subject to small changes.
 |         | 11.15 - 12.30 | Machine learning foundations | [sheets foundations](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#foundations)|[script](https://katrienantonio.github.io/workshop-ML/scripts/day_1/3_machine_learning_foundations.R)|[solutions](https://katrienantonio.github.io/workshop-ML/scripts/day_1/3_machine_learning_foundations.R)|
 |         | 13.30 - 14.00 | Machine learning foundations | [sheets foundations](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#foundations)|[script](https://katrienantonio.github.io/workshop-ML/scripts/day_1/3_machine_learning_foundations.R)|[solutions](https://katrienantonio.github.io/workshop-ML/scripts/day_1/3_machine_learning_foundations_solutions.R)|
 |         | 14.00 - 15.00 | Target and feature engineering | [sheets engineering](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#engineering)|[script](https://katrienantonio.github.io/workshop-ML/scripts/day_1/4_target_and_feature_engineering.R)|[solutions](https://katrienantonio.github.io/workshop-ML/scripts/day_1/4_target_and_feature_engineering_solutions.R)|
-|         | 15.15 - 16.30 | Regression models | [sheets regression](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#regression)|[script](https://katrienantonio.github.io/workshop-ML/scripts/day_1/5_regression.R)|[solutions](https://katrienantonio.github.io/workshop-ML/scripts/day_1/5_solutions.R)|
-| Day 2   | 09.30 - 11.00 | Trees | [sheets trees](https://katrienantonio.github.io/workshop-ML/sheets/day_2/lecture_sheets_workshop_ML_Day_2.html#trees) |
-|         | 11.15 - 12.30 | Bagging and random forests | [sheets bagging and random forests](https://katrienantonio.github.io/workshop-ML/sheets/day_2/lecture_sheets_workshop_ML_Day_2.html#bag_rf)|
-|         | 13.30 - 15.00 | Gradient boosting machine | [sheets gbm](https://katrienantonio.github.io/workshop-ML/sheets/day_2/lecture_sheets_workshop_ML_Day_2.html#gbm)|
-|         | 15.15 - 16.30 | h2o | [sheets h2o](https://katrienantonio.github.io/workshop-ML/sheets/day_2/lecture_sheets_workshop_ML_Day_2.html#h2o)|
-| Day 3   | 09.30 - 10.00 | Introduction | [sheets intro](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#introduction) | ... |
+|         | 15.15 - 16.30 | Regression models | [sheets regression](https://katrienantonio.github.io/workshop-ML/sheets/day_1/lecture_sheets_workshop_ML_Day_1.html#regression)|[script](https://katrienantonio.github.io/workshop-ML/scripts/day_1/5_regression_models.R)|[solutions](https://katrienantonio.github.io/workshop-ML/scripts/day_1/5_regression_models_solutions.R)|
+| Day 2   | 09.30 - 09.30 | Set-up | |[script](https://katrienantonio.github.io/workshop-ML/scripts/day_2/0_setup.R)|
+|  | 09.30 - 11.00 | Trees | [sheets trees](https://katrienantonio.github.io/workshop-ML/sheets/day_2/lecture_sheets_workshop_ML_Day_2.html#trees) |[script](https://katrienantonio.github.io/workshop-ML/scripts/day_2/1_decision_tree.R)|[solutions](https://katrienantonio.github.io/workshop-ML/scripts/day_2/1_decision_tree_solutions.R)|
+|         | 11.15 - 12.30 | Bagging and random forests | [sheets bagging and random forests](https://katrienantonio.github.io/workshop-ML/sheets/day_2/lecture_sheets_workshop_ML_Day_2.html#bag_rf)|[script](https://katrienantonio.github.io/workshop-ML/scripts/day_2/2_bagging_randomforest.R)|[solutions](https://katrienantonio.github.io/workshop-ML/scripts/day_2/2_bagging_randomforest_solutions.R)|
+|         | 13.30 - 15.00 | Gradient boosting machine | [sheets gbm](https://katrienantonio.github.io/workshop-ML/sheets/day_2/lecture_sheets_workshop_ML_Day_2.html#gbm)|[script](https://katrienantonio.github.io/workshop-ML/scripts/day_2/3_gbm_xgboost.R)|[solutions](https://katrienantonio.github.io/workshop-ML/scripts/day_2/3_gbm_xgboost_solutions.R)|
+|         | 15.15 - 16.30 | h2o | [sheets h2o](https://katrienantonio.github.io/workshop-ML/sheets/day_2/lecture_sheets_workshop_ML_Day_2.html#h2o)|[script](https://katrienantonio.github.io/workshop-ML/scripts/day_2/4_h2o.R)|[solutions](https://katrienantonio.github.io/workshop-ML/scripts/day_2/4_h2o_solutions.R)|
+| Day 3   | 09.30 - 10.00 | Introduction | [sheets intro](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#introduction) |  |
 |         | 10.00 - 11.00 | Fundamentals | [sheets fundamentals](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#fundamentals)|
 |         | 11.15 - 11.45 | More on fundamentals | [sheets fundamentals](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#fundamentals)|
 |         | 11.45 - 12.30 | Autoencoders | [sheets autoencoders](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#autoencoder)|
@@ -99,7 +100,7 @@ Familiarity with statistical or machine learning methods is *not* required. The 
 
 ## Software Requirements
 
-Please bring a laptop with a recent version of R and RStudio installed. Make sure you can connect your laptop to the internet (or download the course material one day before the start of the workshop. You will need:
+Please bring a laptop with a recent version of R and RStudio installed. Make sure you can connect your laptop to the internet (or download the course material one day before the start of the workshop). You will need:
 
 - R (at least 3.5.2 <https://cloud.r-project.org/bin/windows/base/> )
 - RStudio ( <https://www.rstudio.com/products/rstudio/download/#download> )
@@ -185,9 +186,14 @@ devtools::install_github("rstudio/keras")
 library(keras)
 ```
 
-## Course material
+## R Studio Cloud
 
-Lecture sheets will become available a week before the workshop (in pdf and HTML format). R scripts, notebooks and the data sets used throughout the course will be at your disposal.
+We provide a back-up plan in case your local installation of R (and the necessary packages) is not working properly. Our workspace on R Studio Cloud dedicated to the workshop is 
+
+[https://rstudio.cloud/spaces/50091/join?access_code=wZHDLt2dgnsf8O4YB73JNUMKlQZw%2BkG3W43zO6bA](https://rstudio.cloud/spaces/50091/join?access_code=wZHDLt2dgnsf8O4YB73JNUMKlQZw%2BkG3W43zO6bA)
+
+After creating an account for RStudio you will be able to work with the scripts and data sets in the cloud. This only works for Day 1-2 of the workshop (due to memory limitations)!
+
 
 ## Instructors
 

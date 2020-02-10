@@ -1,0 +1,314 @@
+## ----setup------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+source('0_setup.R')
+
+
+## ----init-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+h2o.init(nthreads = -1, max_mem_size = '4g')
+
+
+## ----info-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+h2o.clusterInfo()
+
+
+## ----data-1-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mtpl_path <- paste0(data_path,'MTPL.csv') 
+mtpl_h2o <- h2o.uploadFile(path = mtpl_path,
+                           destination_frame = 'mtpl.h2o')
+
+
+## ----data-2-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mtpl_h2o %>% class
+
+
+## ----data-3-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mtpl_h2o[,'log_expo'] <- log(mtpl_h2o[,'expo'])
+
+
+## ----h2o-to-r-1-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mtpl_r <- mtpl_h2o %>% as.data.frame
+
+## ----h2o-to-r-2-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mtpl_r %>% class
+
+
+## ----r-to-h2o-1-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mtpl2_h2o <- mtpl_r %>% as.h2o(
+  destination_frame = 'mtpl2.h2o')
+
+## ----r-to-h2o-2-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mtpl_h2o %>% class
+
+
+## ----remove-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# List the objects in the cluster
+h2o.ls() 
+# Remove the object from the H2O cluster
+'mtpl2.h2o' %>% h2o.rm
+# Remove the R object
+mtpl2_h2o %>% remove 
+# List the objects in the cluster
+h2o.ls() 
+
+
+## ----functions-1------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mtpl_h2o[,'ageph'] %>% quantile # on H2O object
+mtpl_r[,'ageph'] %>% quantile # on R object
+
+
+## ----functions-2------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mtpl_h2o[,'fuel'] %>% h2o.table
+
+
+## ----functions-3------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mtpl_h2o[,'fuel'] %>% table
+
+
+## ----munging-1--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mtpl_h2o %>% h2o.group_by(by = 'ageph',
+                          sum('expo'))
+
+## ----munging-2--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+mtpl_h2o[,'ageph'] %>% h2o.hist
+
+
+## ----Your Turn: solution---------------------------------------------------------------------------------------------------------------------------------------------------------
+by_vars <- c('ageph','power')
+nclaim_by <- mtpl_h2o %>% h2o.group_by(by = by_vars,
+                                       sum('nclaims'))
+expo_by <- mtpl_h2o %>% h2o.group_by(by = by_vars,
+                                     sum('expo'))
+
+by_h2o <- h2o.merge(nclaim_by,expo_by)
+
+by_h2o[,'freq'] <- {by_h2o[,'sum_nclaims']/
+    by_h2o[,'sum_expo']}
+
+by_h2o[,'bins'] <- by_h2o[,'freq'] %>% 
+  h2o.cut(breaks = quantile(by_h2o[,'freq'],
+                            probs = seq(0,1,0.25)),
+          include.lowest = TRUE)
+
+by_r <- by_h2o %>% as.data.frame
+
+ggplot(by_r, aes(x = ageph, y = power)) + geom_tile(aes(fill = bins))
+
+
+## ----data-split-1-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+mtpl_split <- mtpl_h2o %>%  h2o.splitFrame(ratios = 0.7,
+                                           destination_frames = c('train.h2o',
+                                                                  'test.h2o'),
+                                           seed = 54321)
+
+
+## ----data-split-2-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+train_h2o <- mtpl_split[[1]]
+train_h2o %>% dim
+
+## ----data-split-3-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+test_h2o <- mtpl_split[[2]]
+test_h2o %>%  dim
+
+
+## ----rand-grid-1-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+gbm_grid <- list(
+  max_depth = c(1,3,5), # depth of a tree
+  sample_rate = c(0.5,0.75,1), # row sample rate
+  col_sample_rate = c(0.5,0.75,1) # column sample rate
+)
+
+
+## ----rand-grid-2-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+# To get a SPEEDUP, change the max runtime
+gbm_settings <- list(
+  strategy = 'RandomDiscrete', # set to 'Cartesian' for full Cartesian grid search
+  stopping_metric = 'deviance',
+  stopping_tolerance = 0.001,
+  stopping_rounds = 10,
+  max_runtime_secs = 10*60
+)
+
+
+## ----rand-grid-3-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+gbm_search <- h2o.grid(
+  algorithm = 'gbm',
+  distribution = 'poisson',
+  x = names(train_h2o)[7:15],
+  y = 'nclaims',
+  offset_column = 'log_expo',
+  training_frame = train_h2o,
+  hyper_params = gbm_grid, # our defined grid
+  grid_id = 'gbm_grid', # used to get results
+  ntrees = 500,
+  learn_rate = 0.05,
+  learn_rate_annealing = 0.99, # decr. step size
+  search_criteria = gbm_settings, # settings
+  nfolds = 5,
+  seed = 54321
+)
+
+
+## ----grid-perf-1-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+gbm_perf <- h2o.getGrid(
+  grid_id = 'gbm_grid',
+  sort_by = 'residual_deviance',
+  decreasing = FALSE
+)
+print(gbm_perf)
+
+
+## ----grid-perf-2-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Retrieve the best performing model
+gbm_h2o <- h2o.getModel(gbm_perf@model_ids[[1]])
+print(gbm_h2o@model[['model_summary']])
+
+# Check the performance on the test set
+gbm_h2o %>% h2o.performance(newdata = test_h2o)
+
+
+## ----grid-perf-3-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Get predictions on the test set
+test_pred <- gbm_h2o %>% 
+  h2o.predict(newdata = test_h2o)
+
+## ----grid-perf-4-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Group observations by number of claims 
+# and calculate the mean prediction
+h2o.cbind(test_h2o,test_pred) %>% 
+  h2o.group_by(by = 'nclaims',
+               mean('predict'))
+
+
+## ----var-imp---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+gbm_h2o %>% h2o.varimp_plot
+
+
+## ----Your Turn: solution---------------------------------------------------------------------------------------------------------------------------------------------------------
+glm_h2o <- h2o.glm(
+  training_frame = train_h2o,
+  x = names(mtpl_h2o)[7:15], 
+  y = 'nclaims',
+  offset_column = 'log_expo',
+  family = 'poisson',
+  link = 'Log',
+  intercept = TRUE,
+  interaction_pairs = list(
+    c('ageph','power')
+  ),
+  alpha = 0.5,
+  lambda_search = TRUE,
+  nlambdas = 100,
+  early_stopping = TRUE
+)
+
+# Print the GLM coeficients
+print(glm_h2o@model[['coefficients_table']])
+
+# GLM performance
+glm_h2o %>% h2o.performance(newdata = test_h2o)
+
+# GBM performance
+gbm_h2o %>% h2o.performance(newdata = test_h2o)
+
+# GLM predictions
+test_pred <- glm_h2o %>% 
+  h2o.predict(newdata = test_h2o)
+h2o.cbind(test_h2o,test_pred) %>% 
+  h2o.group_by(by = 'nclaims', mean('predict'))
+
+# GBM predictions
+test_pred <- gbm_h2o %>% 
+  h2o.predict(newdata = test_h2o)
+h2o.cbind(test_h2o,test_pred) %>% 
+  h2o.group_by(by = 'nclaims', mean('predict'))
+
+
+
+## ----stack-glm---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+stack_glm <- h2o.glm(
+  training_frame = train_h2o,
+  x = names(mtpl_h2o)[7:15],
+  y = 'nclaims',
+  offset_column = 'log_expo',
+  family = 'poisson',
+  link = 'Log',
+  intercept = TRUE,
+  alpha = 0.5,
+  lambda_search = TRUE,
+  nlambdas = 100,
+  early_stopping = TRUE,
+  nfolds = 5,
+  fold_assignment = 'Modulo',
+  keep_cross_validation_predictions = TRUE,
+  seed = 987654321
+)
+
+
+## ----stack-gbm---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+stack_gbm <- h2o.gbm(
+  training_frame = train_h2o,
+  x = names(mtpl_h2o)[7:15],
+  y = 'nclaims',
+  offset_column = 'log_expo',
+  distribution = 'poisson',
+  ntrees = 500,
+  learn_rate = 0.05,
+  learn_rate_annealing = 0.99,
+  max_depth = 3,
+  sample_rate = 0.75,
+  col_sample_rate = 0.5,
+  nfolds = 5,
+  fold_assignment = 'Modulo',
+  keep_cross_validation_predictions = TRUE,
+  seed = 987654321
+)
+
+
+## ----stack-ens---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+stack_ens <- h2o.stackedEnsemble(
+  training_frame = train_h2o,
+  x = names(mtpl_h2o)[7:15],
+  y = 'nclaims',
+  model_id = 'my_stack',
+  base_models = list(
+    stack_glm,
+    stack_gbm
+  ),
+  metalearner_algorithm = 'deeplearning',
+  metalearner_params = list(
+    distribution = 'poisson'
+  ),
+  seed = 123456789
+)
+
+
+## ----stack-train-1-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+preds_train <- h2o.cbind(
+  h2o.predict(stack_glm, newdata = train_h2o),
+  h2o.predict(stack_gbm, newdata = train_h2o),
+  h2o.predict(stack_ens, newdata = train_h2o)
+)
+names(preds_train) <- c('glm','gbm','stack')
+
+
+## ----stack-train-2-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+dev_poiss(y = as.vector(train_h2o[,'nclaims']),
+          yhat = as.matrix(preds_train))
+
+
+## ----stack-test-1------------------------------------------------------------------------------------------------------------------------------------------------------------------
+preds_test <- h2o.cbind(
+  h2o.predict(stack_glm, newdata = test_h2o),
+  h2o.predict(stack_gbm, newdata = test_h2o),
+  h2o.predict(stack_ens, newdata = test_h2o)
+)
+names(preds_test) <- c('glm','gbm','stack')
+
+
+## ----stack-test-2------------------------------------------------------------------------------------------------------------------------------------------------------------------
+dev_poiss(y = as.vector(test_h2o[,'nclaims']),
+          yhat = as.matrix(preds_test))
+
+
+## ----shutdown----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+h2o.shutdown()

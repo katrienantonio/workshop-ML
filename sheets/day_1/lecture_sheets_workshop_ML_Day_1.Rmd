@@ -1339,7 +1339,7 @@ Objective `r fa(name = "fas fa-bullseye", fill = KULbg)` : minimize!]
 
 .pull-right[.KULbginline[Classification], use e.g. the .hi-pink[cross-entropy] or .hi-pink[log loss]
 $$\begin{eqnarray*}
--\frac{1}{n} \sum_{i=1}^n \left(\color{#FFA500}{y}_i \cdot \log{(p)_i} + (1-\color{#FFA500}{y}_i) \cdot \log{(1-p_i)}\right).
+-\frac{1}{n} \sum_{i=1}^n \left(\color{#FFA500}{y}_i \cdot \log{(p_i)} + (1-\color{#FFA500}{y}_i) \cdot \log{(1-p_i)}\right).
 \end{eqnarray*}$$
  
 Objective `r fa(name = "fas fa-bullseye", fill = KULbg)` : minimize!
@@ -3469,7 +3469,7 @@ res_1 %>% slice(1:2) %>% select(Sale_Price,
 ```
 
 ```{r echo=FALSE}
-res_1 %>% slice(1:2) %>% select(Sale_Price, Year_Built, .resid) %>% kable()
+res_1 %>% slice(1:2) %>% select(Sale_Price, Year_Built, .resid) %>% kable(format = 'html')
 ```
 
 .hi-pink[Q.2] to plot the residuals of `m_1`
@@ -5755,9 +5755,9 @@ Course material available via
 ```{r, eval=FALSE, include=FALSE}
 # this code can be used to extract the R code from an R Markdown (Rmd) document
 library(knitr)
-path <- "C:/Users/u0043788/Dropbox/R tutorial/Basic R"
+path <- "C:/Users/u0043788/Dropbox/NN Machine learning training/lecture sheets Katrien/course material NN ML"
 setwd(path)
-file.exists("basic_R_workshop_NN.Rmd")
-purl("basic_R_workshop_NN.Rmd")
+file.exists("lecture_sheets_workshop_ML_Day_1.Rmd")
+purl("lecture_sheets_workshop_ML_Day_1.Rmd")
 ```
 

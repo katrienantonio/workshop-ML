@@ -673,7 +673,7 @@ Your starting point are the instructions in the R notebook `data_sets.nb` or the
 
 &lt;br&gt;
 
-<div class="countdown" id="timer_5e404ee7" style="right:0%;bottom:5%;" data-warnwhen="0">
+<div class="countdown" id="timer_5e414fca" style="right:0%;bottom:5%;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1520,7 +1520,7 @@ Objective &lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;"
 
 .pull-right[.KULbginline[Classification], use e.g. the .hi-pink[cross-entropy] or .hi-pink[log loss]
 `$$\begin{eqnarray*}
--\frac{1}{n} \sum_{i=1}^n \left(\color{#FFA500}{y}_i \cdot \log{(p)_i} + (1-\color{#FFA500}{y}_i) \cdot \log{(1-p_i)}\right).
+-\frac{1}{n} \sum_{i=1}^n \left(\color{#FFA500}{y}_i \cdot \log{(p_i)} + (1-\color{#FFA500}{y}_i) \cdot \log{(1-p_i)}\right).
 \end{eqnarray*}$$`
  
 Objective &lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 496 512"&gt;&lt;path d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm0 432c-101.69 0-184-82.29-184-184 0-101.69 82.29-184 184-184 101.69 0 184 82.29 184 184 0 101.69-82.29 184-184 184zm0-312c-70.69 0-128 57.31-128 128s57.31 128 128 128 128-57.31 128-128-57.31-128-128-128zm0 192c-35.29 0-64-28.71-64-64s28.71-64 64-64 64 28.71 64 64-28.71 64-64 64z"/&gt;&lt;/svg&gt; : minimize!
@@ -3474,11 +3474,27 @@ res_1 %&gt;% slice(1:2) %&gt;% select(Sale_Price,
                                 Year_Built, .resid)
 ```
 
-
- Sale_Price   Year_Built      .resid
------------  -----------  ----------
-     244000         1968    67971.15
-     189900         1997   -28607.08
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; Sale_Price &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Year_Built &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; .resid &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 244000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1968 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 67971.15 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 189900 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1997 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -28607.08 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 .hi-pink[Q.2] to plot the residuals of `m_1`
 

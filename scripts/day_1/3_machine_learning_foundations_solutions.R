@@ -189,48 +189,48 @@ y <- sin(x) + rnorm(length(x), sd = 0.3)
 df <- data.frame(x, y) %>%
   filter(x < 4.5)
 
-
-
-
-
-
-
-
-
-## -----------------------------------------------------------------------------------------------
-
-
-
-
+ggplot() + theme_bw() +
+  geom_point(data = df, aes(x, y), alpha = .3) +
+  scale_y_continuous(limits = c(-1.75, 1.75), 
+                     expand = c(0, 0)) +
+  scale_x_continuous(limits = c(0, 4.5), 
+                     expand = c(0, 0))
 
 
 ## -----------------------------------------------------------------------------------------------
+k <- 3
+fit <- caret::knnreg(y ~ x, k = k, data = df)
+df$pred <- predict(fit, df)
+df %>% slice(1:6) 
 
 
-
-
-
+## -----------------------------------------------------------------------------------------------
+ggplot(data = df) + theme_bw() + 
+  geom_point(aes(x, y), alpha = .3) +
+  geom_line(aes(x, pred), color = KULbg, size = 1.0) +
+  scale_y_continuous(limits = c(-1.75, 1.75), expand = c(0, 0)) +
+  scale_x_continuous(limits = c(0, 4.5), expand = c(0, 0))
 
 
 ## -----------------------------------------------------------------------------------------------
 k_results <- NULL
-k <- 
+k <- c(2, 5, 10, 20, 50, 150)
 
 # fit the different models
-for(i in ) {
+for(i in seq_along(k)) {
   df_sim <- df
-  fit <- knnreg( ~ , k = , data = )
-  df_sim$pred <- predict(, )
+  fit <- knnreg(y ~ x, k = k[i], data = df_sim)
+  df_sim$pred <- predict(fit, df_sim)
   df_sim$model <- paste0("k = ", stringr::str_pad(k[i], 3, pad = " "))
   k_results <- rbind(k_results, df_sim)
 }
 
 ggplot() + theme_bw() +
-  geom_point(data = , aes(x, y), alpha = .3) +
-  geom_line(data = k_results, aes(, ), color = KULbg, size = 1.0) +
+  geom_point(data = df, aes(x, y), alpha = .3) +
+  geom_line(data = k_results, aes(x, pred), color = KULbg, size = 1.0) +
   scale_y_continuous("Response", limits = c(-1.75, 1.75), expand = c(0, 0)) +
   scale_x_continuous(limits = c(0, 4.5), expand = c(0, 0)) +
-  facet_wrap(~ )
+  facet_wrap(~ model)
 
 ## ----Your Turn ends here------------------------------------------------------------------------
 ## -----------------------------------------------------------------------------------------------
@@ -290,8 +290,8 @@ cv_rsample$splits
 
 ## ----Your Turn---------------------------------------------------------------------------------
 ## ----------------------------------------------------------------------------------------------
-hyper_grid <- 
-
+hyper_grid <- expand.grid(k = seq(2, 150, by = 2))  
+hyper_grid %>% slice(1:3) 
 
 
 ## ----------------------------------------------------------------------------------------------
@@ -308,56 +308,56 @@ holdout_results <- function(s, k_val) {
   res <- tibble(obs = holdout$y, pred = res)
   res
 }
-
-
+res <- holdout_results(cv_rsample$splits[[3]], hyper_grid[1, ])
+sqrt(sum((res$obs - res$pred)^2)/nrow(res))
 
 
 ## -----------------------------------------------------------------------------------------------
+RMSE <- numeric(nrow(hyper_grid))
+SE <- numeric(nrow(hyper_grid))
+for(i in 1:nrow(hyper_grid)){
+  cv_rsample$results <- map(cv_rsample$splits,
+                            holdout_results,
+                            hyper_grid[i, ])
+  res <- map_dbl(cv_rsample$results, 
+                 function(x) mean((x$obs - x$pred)^2))
+  RMSE[i] <- mean(sqrt(res)) ; SE[i] <- sd(sqrt(res))
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+df <- tibble(RMSE, SE, k = hyper_grid$k)
+df <- df %>% mutate(lower = RMSE-SE, upper = RMSE + SE)
+best <- df %>% filter(RMSE == min(RMSE)) 
+best 
 
 
 ## ----------------------------------------------------------------------------------------------
-
-
+one_SE <- df %>% filter(RMSE <= best$upper) %>% filter(k == max(k)) 
+one_SE
 
 
 ## ----one-SE-rule-------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+big_g <- ggplot(data = df) + theme_bw() +
+  geom_line(aes(k, RMSE)) +
+  geom_point(aes(k, RMSE)) +
+  geom_pointrange(aes(k, RMSE, ymin = lower, ymax = upper), alpha = 0.5) +
+  geom_point(data = best,
+             aes(k, RMSE),
+             shape = 21,
+             fill = "yellow",
+             color = "black",
+             stroke = 1,
+             size = 2) +
+  geom_point(data = one_SE,
+             aes(k, RMSE),
+             shape = 21,
+             fill = "yellow",
+             color = "black",
+             stroke = 1,
+             size = 3) +
+  geom_hline(data = best,
+             aes(yintercept = upper)) +
+  scale_y_continuous("Error (RMSE)")
+big_g
 
 ## ----Your Turn ends here------------------------------------------------------------------------
 ## -----------------------------------------------------------------------------------------------

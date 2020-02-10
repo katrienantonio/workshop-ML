@@ -57,23 +57,13 @@ exp(coef(freq_glm_1)[1])
 exp(coef(freq_glm_1)[1] + coef(freq_glm_1)[2])
 
 
+## ----Your Turn---------------------------------------------------------------------------------
 ## ----------------------------------------------------------------------------------------------
-male_driver <- data.frame(expo = 1, sex = "male")
-female_driver <- data.frame(expo = 1, sex = "female")
 
 
-## ----------------------------------------------------------------------------------------------
-predict(freq_glm_1, newdata = male_driver, type = "response")
 
-
-## ----------------------------------------------------------------------------------------------
-predict(freq_glm_1, newdata = male_driver, type = "link")
-
-
-## ----------------------------------------------------------------------------------------------
-sev_glm_1 <- glm(avg ~ sex, family = Gamma(link = "log"), data = mtpl)
-sev_glm_1
-
+## ----Your Turn ends here------------------------------------------------------------------------
+## -----------------------------------------------------------------------------------------------
 
 ## ----------------------------------------------------------------------------------------------
 mtpl %>% group_by(ageph) %>% 
@@ -145,7 +135,6 @@ p_glm_age_c
 
 
 ## ----------------------------------------------------------------------------------------------
-library(mgcv)
 freq_gam_age <- gam(nclaims ~ s(ageph), 
                     offset = log(expo), 
                     data = mtpl, 
@@ -170,44 +159,16 @@ p_gam_age <- p_gam_age + xlab("ageph") + ylab("fit") + theme_bw()
 p_gam_age
 
 
+## ----Your Turn---------------------------------------------------------------------------------
 ## ----------------------------------------------------------------------------------------------
-library(mgcv)
-freq_gam <- gam(nclaims ~ s(ageph), offset = log(expo), family = poisson(link = "log"), data = mtpl)
-plot(freq_gam, scheme = 4)
 
 
+
+
+## ----Your Turn ends here-----------------------------------------------------------------------
 ## ----------------------------------------------------------------------------------------------
-freq_gam_2 <- gam(nclaims ~ sex + fuel + use + 
-                    s(ageph) + s(bm), 
-                  offset = log(expo), 
-                  family = poisson(link = "log"), 
-                  data = mtpl)
-
 
 ## ----------------------------------------------------------------------------------------------
-summary(freq_gam_2)
-
-
-## ----------------------------------------------------------------------------------------------
-plot(freq_gam_2, select = 1)
-
-
-## ----------------------------------------------------------------------------------------------
-plot(freq_gam_2, select = 2)
-
-
-## ----------------------------------------------------------------------------------------------
-drivers <- data.frame(expo = c(1, 1, 1), sex = c("female", "female", "female"), fuel = c("diesel", "diesel", "diesel"), use = c("private", "private", "private"), ageph = c(18, 45, 65), bm = c(20, 5, 0))
-drivers 
-
-
-## ----------------------------------------------------------------------------------------------
-predict(freq_gam_2, newdata = drivers, 
-        type = "response") %>% kable(format = 'html')
-
-
-## ----------------------------------------------------------------------------------------------
-library(glmnet)
 data(QuickStartExample)
 fit <- glmnet(x, y, family = "gaussian", alpha = 1, standardize = TRUE, intercept = TRUE)
 
@@ -260,7 +221,7 @@ coef(fit, s = cv_fit$lambda.min)
 col <- c(1, 3, 5:8, 11, 14, 20)
 subset <- data.frame(y = y, V1 = x[, 1], V3 = x[, 3], V5 = x[, 5], V6 = x[, 6], V7 = x[, 7], V8 = x[, 8], V11 = x[, 11], V14 = x[, 14], V20 = x[, 20])
 final_model <- lm(y ~ V1 + V3 + V5 + V6 + V7 + V8 + V11 + V14 + V20, data = subset)
-final_model %>% broom::tidy() %>% kable(format = 'html')
+final_model %>% broom::tidy()
 
 
 ## ----------------------------------------------------------------------------------------------
@@ -291,62 +252,18 @@ x <- model.matrix( ~ coverage + fuel + use + fleet + sex + ageph + bm +
                      agec + power, data = mtpl, 
                    contrasts.arg = map(mtpl[, c("coverage")], contrasts, 
                                        contrasts = FALSE))[,-1]
-alpha <- 1 # for lasso penalty
-mtpl_glmnet <- glmnet(x = x, y = y, 
-                      family = "poisson", 
-                      offset = log(mtpl$expo), 
-                      alpha = alpha, 
-                      standardize = TRUE, 
-                      intercept = TRUE)
+x[1:6,]
 
 
+## ----Your Turn---------------------------------------------------------------------------------
 ## ----------------------------------------------------------------------------------------------
-row.names(mtpl_glmnet$beta) 
 
 
-## ----------------------------------------------------------------------------------------------
-plot(mtpl_glmnet, xvar = 'lambda', label = TRUE)  
 
 
-## ----------------------------------------------------------------------------------------------
-set.seed(123)
-fold_id <- sample(rep(1:10, length.out = nrow(mtpl)), 
-                  nrow(mtpl))
-mtpl_glmnet_cv <- cv.glmnet(x, y, family = "poisson", 
-                            alpha = alpha, 
-                            nfolds = 10, 
-                            foldid = fold_id, 
-                            type.measure = "deviance", 
-                            standardize = TRUE, 
-                            intercept = TRUE)
-plot(mtpl_glmnet_cv)
-
-
-## ----------------------------------------------------------------------------------------------
-coef(mtpl_glmnet_cv, s = "lambda.min")
-
-
-## ----------------------------------------------------------------------------------------------
-coef(mtpl_glmnet_cv, s = "lambda.1se")
-
-
-## ----------------------------------------------------------------------------------------------
-mtpl$coverage <- relevel(mtpl$coverage, "PO")
-mtpl_formula_refit <- nclaims ~ 1 + coverage + 
-  fuel + use + fleet + sex + 
-  ageph + bm + agec + power
-mtpl_glm_refit <- glm(mtpl_formula_refit, 
-                      data = mtpl, 
-                      offset = log(mtpl$expo), 
-                      family = poisson())
-
-
+## ----Your Turn ends here------------------------------------------------------------------------
 ## -----------------------------------------------------------------------------------------------
-mtpl_formula_refit_2 <- nclaims ~ 1 + ageph + bm 
-mtpl_glm_refit_2 <- glm(mtpl_formula_refit_2, 
-                        data = mtpl, 
-                        offset = log(mtpl$expo), 
-                        family = poisson())
+
 
 
 

@@ -21,7 +21,7 @@ ames_test   <- rsample::testing(split)
 summary(ames_train$Sale_Price)
 summary(ames_test$Sale_Price)
 
-## ----Your Turn----------------------------------------------------------------------------------
+## ----Your Turn---------------------------------------------------------------------------------
 ## ----two-linear-models-------------------------------------------------------------------------
 m_1 <- lm(Sale_Price ~ Year_Built, data = ames_train)
 m_2 <- lm(log(Sale_Price) ~ Year_Built, data = ames_train)
@@ -77,13 +77,17 @@ g <- ggplot(data = f_2, aes(.resid)) + theme_bw() +
   xlab("Residuals")
 g
 
+## ----Your Turn ends here-----------------------------------------------------------------------
+## ----------------------------------------------------------------------------------------------
 
 ## ----------------------------------------------------------------------------------------------
-ames_train %>% group_by(Neighborhood) %>% summarize(n_obs = n()) %>% arrange(n_obs) %>% slice(1:4) 
+ames_train %>% group_by(Neighborhood) %>% 
+  summarize(n_obs = n()) %>% arrange(n_obs) %>% slice(1:4) 
 
 
 ## ----------------------------------------------------------------------------------------------
-df <- ames_train %>% group_by(Neighborhood) %>% summarize(n_obs = n()) %>% arrange(n_obs)
+df <- ames_train %>% group_by(Neighborhood) %>% 
+  summarize(n_obs = n()) %>% arrange(n_obs)
 
 ggplot(ames_train, aes(x = fct_infreq(Neighborhood))) + theme_bw() +
   geom_bar(col = KULbg, fill = KULbg, alpha = .5) + 
@@ -122,7 +126,7 @@ juice(mod_rec_trained) %>% group_by(Neighborhood) %>%
   summarize(n_obs = n()) %>% 
   arrange(n_obs) 
 
-
+## ----Your Turn---------------------------------------------------------------------------------
 ## ----------------------------------------------------------------------------------------------
 ames_train %>% group_by(House_Style) %>% summarize(n_obs = n()) %>% arrange(n_obs) 
 
@@ -195,13 +199,14 @@ head(ames_test$Sale_Price)
 
 
 ## ----------------------------------------------------------------------------------------------
-levels(juice(mod_rec_trained)$House_Style)[1:2]
-levels(juice(mod_rec_trained)$House_Style)[3:4]
+levels(juice(mod_rec_trained)$House_Style)
 
 
 ## ----------------------------------------------------------------------------------------------
-levels(ames_test_prep$House_Style)[1:2]
-levels(ames_test_prep$House_Style)[3:4]
+levels(ames_test_prep$House_Style)
+
+## ----Your Turn ends here------------------------------------------------------------------------
+## -----------------------------------------------------------------------------------------------
 
 
 ## ----------------------------------------------------------------------------------------------
@@ -214,7 +219,6 @@ df <- data.frame(x, y) %>% filter(x < 4.5)
 
 ## ----------------------------------------------------------------------------------------------
 # specify the recipe
-library(recipes)
 rec <- recipe(y ~ x, data = df)
 rec <- rec %>% step_center(all_predictors()) %>%
   step_scale(all_predictors())
@@ -229,14 +233,12 @@ sd(juice(rec_df)$x)   # scaled!
 
 ## ----------------------------------------------------------------------------------------------
 # now we combine the recipe with rsample steps
-library(rsample)
 set.seed(123)  # for reproducibility
 cv_rsample <- vfold_cv(df, 5)
 
 
 ## ----------------------------------------------------------------------------------------------
 # we apply the steps in the recipe to each fold
-library(purrr)
 cv_rsample$recipes <- map(cv_rsample$splits, prepper, 
                           recipe = rec)
 # check `?prepper`

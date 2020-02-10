@@ -21,69 +21,24 @@ ames_test   <- rsample::testing(split)
 summary(ames_train$Sale_Price)
 summary(ames_test$Sale_Price)
 
-
+## ----Your Turn---------------------------------------------------------------------------------
 ## ----two-linear-models-------------------------------------------------------------------------
-m_1 <- lm(Sale_Price ~ Year_Built, data = ames_train)
-m_2 <- lm(log(Sale_Price) ~ Year_Built, data = ames_train)
+
+
+
+
+
+## ----Your Turn ends here-----------------------------------------------------------------------
+## ----------------------------------------------------------------------------------------------
+
+## ----------------------------------------------------------------------------------------------
+ames_train %>% group_by(Neighborhood) %>% 
+  summarize(n_obs = n()) %>% arrange(n_obs) %>% slice(1:4) 
 
 
 ## ----------------------------------------------------------------------------------------------
-res_1 <- m_1 %>% broom::augment()
-res_2 <- m_2 %>% broom::augment()
-
-
-## ----------------------------------------------------------------------------------------------
-res_1 %>% slice(1:2) %>% select(Sale_Price, Year_Built, .resid) 
-
-
-## ----------------------------------------------------------------------------------------------
-m_1 <- lm(Sale_Price ~ Year_Built, data = ames_train)
-m_2 <- lm(log(Sale_Price) ~ Year_Built, data = ames_train)
-
-res_1 <- m_1 %>% broom::augment()
-res_2 <- m_2 %>% broom::augment()
-
-g_res_1 <- ggplot(data = res_1, aes(.resid)) + theme_bw() +
-  geom_histogram(bins = 75, col = KULbg, fill = KULbg, alpha = .5) +
-  ylab(NULL) + ggtitle("AMES - original target") +
-  xlab("Residuals")
-
-g_res_2 <- ggplot(data = res_2, aes(.resid)) + theme_bw() +
-  geom_histogram(bins = 75, col = KULbg, fill = KULbg, alpha = 0.5) +
-  ylab(NULL) + ggtitle("AMES - log transformed target") +
-  xlab("Residuals")
-
-gridExtra::grid.arrange(g_res_1, g_res_2, nrow = 1)
-
-
-## ----------------------------------------------------------------------------------------------
-models <- c("Non-log transformed model residuals", 
-            "Log transformed model residuals")
-
-l <- list(
-  m1 = lm(Sale_Price ~ Year_Built, data = ames_train),
-  m2 = lm(log(Sale_Price) ~ Year_Built, data = ames_train)
-)
-
-# try map_df
-f_1 <- map_df(l, function(x){broom::augment(x)})
-# or even better map2_df
-f_2 <- map2_df(l, models, function(x,y){ broom::augment(x) %>% mutate(model = y)})
-
-g <- ggplot(data = f_2, aes(.resid)) + theme_bw() +
-  geom_histogram(bins = 75, col = KULbg, fill = KULbg, alpha = .5) +
-  facet_wrap(~ model, scales = "free_x") +
-  ylab(NULL) +
-  xlab("Residuals")
-g
-
-
-## ----------------------------------------------------------------------------------------------
-ames_train %>% group_by(Neighborhood) %>% summarize(n_obs = n()) %>% arrange(n_obs) %>% slice(1:4) 
-
-
-## ----------------------------------------------------------------------------------------------
-df <- ames_train %>% group_by(Neighborhood) %>% summarize(n_obs = n()) %>% arrange(n_obs)
+df <- ames_train %>% group_by(Neighborhood) %>% 
+  summarize(n_obs = n()) %>% arrange(n_obs)
 
 ggplot(ames_train, aes(x = fct_infreq(Neighborhood))) + theme_bw() +
   geom_bar(col = KULbg, fill = KULbg, alpha = .5) + 
@@ -122,86 +77,14 @@ juice(mod_rec_trained) %>% group_by(Neighborhood) %>%
   summarize(n_obs = n()) %>% 
   arrange(n_obs) 
 
-
+## ----Your Turn---------------------------------------------------------------------------------
 ## ----------------------------------------------------------------------------------------------
-ames_train %>% group_by(House_Style) %>% summarize(n_obs = n()) %>% arrange(n_obs) 
 
 
-## ----------------------------------------------------------------------------------------------
-ggplot(ames_train, aes(x = fct_infreq(House_Style))) + theme_bw() +
-  geom_bar(col = KULbg, fill = KULbg, alpha = .5) + 
-  coord_flip() + 
-  xlab("") 
 
 
-## ----------------------------------------------------------------------------------------------
-nzv <- caret::nearZeroVar(ames_train, saveMetrics = TRUE)
-
-
-## ----------------------------------------------------------------------------------------------
-names(ames_train)[nzv$zeroVar]
-
-
-## ----------------------------------------------------------------------------------------------
-names(ames_train)[nzv$nzv]
-
-
-## ----------------------------------------------------------------------------------------------
-mod_rec <- recipe(Sale_Price ~ ., data = ames_train) %>%
-  step_log(all_outcomes()) %>%
-  step_other(Neighborhood, threshold = 0.05) %>%
-  step_other(House_Style, threshold = 0.05) %>%
-  step_zv(all_predictors()) %>% 
-  step_nzv(all_predictors()) %>%
-  step_center(all_numeric(), -all_outcomes()) %>%
-  step_scale(all_numeric(), -all_outcomes())
-summary(mod_rec) %>% slice(1:6) 
-mod_rec
-
-
-## ----------------------------------------------------------------------------------------------
-mod_rec_trained <- prep(mod_rec, 
-                        training = ames_train, 
-                        verbose = TRUE, retain = TRUE)
-
-
-## ----------------------------------------------------------------------------------------------
-ames_test_prep <- bake(mod_rec_trained, 
-                       new_data = ames_test)
-
-
-## ----------------------------------------------------------------------------------------------
-dim(juice(mod_rec_trained)) 
-
-
-## ----------------------------------------------------------------------------------------------
-options(digits = 4)
-head(juice(mod_rec_trained)$Sale_Price) 
-
-
-## ----------------------------------------------------------------------------------------------
-options(digits = 4)
-head(ames_train$Sale_Price) 
-
-
-## ----------------------------------------------------------------------------------------------
-options(digits = 4)
-head(ames_test_prep$Sale_Price) 
-
-
-## ----------------------------------------------------------------------------------------------
-options(digits = 4)
-head(ames_test$Sale_Price) 
-
-
-## ----------------------------------------------------------------------------------------------
-levels(juice(mod_rec_trained)$House_Style)[1:2]
-levels(juice(mod_rec_trained)$House_Style)[3:4]
-
-
-## ----------------------------------------------------------------------------------------------
-levels(ames_test_prep$House_Style)[1:2]
-levels(ames_test_prep$House_Style)[3:4]
+## ----Your Turn ends here------------------------------------------------------------------------
+## -----------------------------------------------------------------------------------------------
 
 
 ## ----------------------------------------------------------------------------------------------
@@ -214,7 +97,6 @@ df <- data.frame(x, y) %>% filter(x < 4.5)
 
 ## ----------------------------------------------------------------------------------------------
 # specify the recipe
-library(recipes)
 rec <- recipe(y ~ x, data = df)
 rec <- rec %>% step_center(all_predictors()) %>%
   step_scale(all_predictors())
@@ -229,14 +111,12 @@ sd(juice(rec_df)$x)   # scaled!
 
 ## ----------------------------------------------------------------------------------------------
 # now we combine the recipe with rsample steps
-library(rsample)
 set.seed(123)  # for reproducibility
 cv_rsample <- vfold_cv(df, 5)
 
 
 ## ----------------------------------------------------------------------------------------------
 # we apply the steps in the recipe to each fold
-library(purrr)
 cv_rsample$recipes <- map(cv_rsample$splits, prepper, 
                           recipe = rec)
 # check `?prepper`

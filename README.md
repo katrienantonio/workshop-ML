@@ -6,7 +6,7 @@ by Katrien Antonio, Jonas Crevecoeur and Roel Henckaerts
 
 Course materials for the *Machine Learning in R* course in February 2020 in The Hague.
 
-<U+0001F4C6> February 11, 12 and 13, 2020 <br> <U+0001F55B> From 9.30 am to 4.30 pm <br> <U+0001F4CC> Nationale Nederlanden, The Hague
+?? February 11, 12 and 13, 2020 <br> ?? From 9.30 am to 4.30 pm <br> ?? Nationale Nederlanden, The Hague
 
 Course materials will be posted in the week before the workshop.
 
@@ -19,6 +19,7 @@ This three-day workshop introduces the *essential concepts of building machine l
 <p align="justify">
 Leaving this workshop, you should have a firm grasp of the working principles of a variety of machine learning methods and be able to explore their use in practical settings. Moreover, you should have acquired the fundamental insights to explore some other methods on your own.
 </p>
+
 Schedule and Course Material
 ----------------------------
 

@@ -60,7 +60,7 @@ The detailed schedule is subject to small changes.
 |         | 11.15 - 11.45 | More on fundamentals | [sheets fundamentals](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#fundamentals)|
 |         | 11.45 - 12.30 | Autoencoders | [sheets autoencoders](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#autoencoder)|
 |         | 13.30 - 15.00 | CNNs | [sheets CNNs](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#cnn)|
-|         | 15.15 - 16.30 | Regression | [sheets regression](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#regression)|
+|         | 15.15 - 16.30 | Regression | [sheets regression](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#regression)| | |
 
 ##### Day 1: Machine learning foundations, regression methods
 

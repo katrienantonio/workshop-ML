@@ -6,7 +6,7 @@ by Katrien Antonio, Jonas Crevecoeur and Roel Henckaerts
 
 Course materials for the *Machine Learning in R* course in February 2020 in The Hague.
 
-<U+0001F4C6> February 11, 12 and 13, 2020 <br> <U+0001F555> From 9.30 am to 4.30 pm <br> <U+0001F4CC> Nationale Nederlanden, The Hague
+<U+0001F4C6> February 11, 12 and 13, 2020 <br> <U+0001F552> From 9.30 am to 4.30 pm <br> <U+0001F4CD> Nationale Nederlanden, The Hague
 
 Course materials will be posted in the week before the workshop.
 
@@ -182,6 +182,7 @@ The detailed schedule is subject to small changes.
 <td>15.15 - 16.30</td>
 <td>Regression</td>
 <td><a href="https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#regression">sheets regression</a></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>

@@ -57,9 +57,9 @@ The detailed schedule is subject to small changes.
 |         | 15.15 - 16.30 | h2o | [sheets h2o](https://katrienantonio.github.io/workshop-ML/sheets/day_2/lecture_sheets_workshop_ML_Day_2.html#h2o)|[script](https://katrienantonio.github.io/workshop-ML/scripts/day_2/4_h2o.R)|[solutions](https://katrienantonio.github.io/workshop-ML/scripts/day_2/4_h2o_solutions.R)|
 | Day 3   | 09.30 - 10.00 | Introduction | [sheets intro](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#introduction) |  |
 |         | 10.00 - 11.00 | Fundamentals | [sheets fundamentals](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#fundamentals)|[script](https://katrienantonio.github.io/workshop-ML/scripts/day_3/Neural networks.R)|[solutions](https://katrienantonio.github.io/workshop-ML/scripts/day_3/Neural networks solutions.R)|
-|         | 11.15 - 11.45 | More on fundamentals | [sheets fundamentals](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#fundamentals)|
-|         | 11.45 - 12.30 | Autoencoders | [sheets autoencoders](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#autoencoder)|
-|         | 13.30 - 15.00 | CNNs | [sheets CNNs](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#cnn)|
+|         | 11.15 - 11.45 | More on fundamentals | [sheets fundamentals](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#fundamentals)| | |
+|         | 11.45 - 12.30 | Autoencoders | [sheets autoencoders](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#autoencoder)| | |
+|         | 13.30 - 15.00 | CNNs | [sheets CNNs](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#cnn)| | |
 |         | 15.15 - 16.30 | Regression | [sheets regression](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#regression)| | |
 
 ##### Day 1: Machine learning foundations, regression methods

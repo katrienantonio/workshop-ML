@@ -6,7 +6,7 @@ by Katrien Antonio, Jonas Crevecoeur and Roel Henckaerts
 
 Course materials for the *Machine Learning in R* course in February 2020 in The Hague.
 
-<U+0001F4C6> February 11, 12 and 13, 2020 <br> <U+23F1> From 9.30 am to 4.30 pm <br> <U+0001F4CC> Nationale Nederlanden, The Hague
+<U+0001F4C6> February 11, 12 and 13, 2020 <br> <U+0001F555> From 9.30 am to 4.30 pm <br> <U+0001F4CC> Nationale Nederlanden, The Hague
 
 Course materials will be posted in the week before the workshop.
 
@@ -153,8 +153,8 @@ The detailed schedule is subject to small changes.
 <td>10.00 - 11.00</td>
 <td>Fundamentals</td>
 <td><a href="https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#fundamentals">sheets fundamentals</a></td>
-<td><a href="https://katrienantonio.github.io/workshop-ML/scripts/day_1/3_machine_learning_foundations.R">script</a></td>
-<td><a href="https://katrienantonio.github.io/workshop-ML/scripts/day_1/3_machine_learning_foundations_solutions.R">solutions</a></td>
+<td><a href="https://katrienantonio.github.io/workshop-ML/scripts/day_3/Neural%20networks.R">script</a></td>
+<td><a href="https://katrienantonio.github.io/workshop-ML/scripts/day_3/Neural%20networks%20solutions.R">solutions</a></td>
 </tr>
 <tr class="odd">
 <td align="center"></td>
@@ -223,7 +223,7 @@ Prework
 -------
 
 <p align="justify">
-The workshop requires a basic understanding of R. A good starting level is the material covered in the [1-Basic](https://github.com/katrienantonio/workshop-R/tree/master/1%20-%20Basic%20R) folder of the [Programming in R](https://github.com/katrienantonio/workshop-R) workshop taught at Nationale Nederlanden in June 2019. From time to time you will also rely on concepts taught in the [2-Advanced](https://github.com/katrienantonio/workshop-R/tree/master/2%20-%20Advanced%20R) folder of the same workshop, including `purrr` and some data handling and visualisation tools. This workshop will provide some review of these topics.
+The workshop requires a basic understanding of R. A good starting level is the material covered i the [1-Basic](https://github.com/katrienantonio/workshop-R/tree/master/1%20-%20Basic%20R) folder of the [Programming in R](https://github.com/katrienantonio/workshop-R) workshop taught at Nationale Nederlanden in June 2019. From time to time you will also rely on concepts taught in the [2-Advanced](https://github.com/katrienantonio/workshop-R/tree/master/2%20-%20Advanced%20R) folder of the same workshop, including `purrr` and some data handling and visualisation tools. This workshop will provide some review of these topics.
 </p>
 Familiarity with statistical or machine learning methods is *not* required. The workshop gradually builds up these concepts, with an emphasis on hands-on demonstrations and exercises.
 

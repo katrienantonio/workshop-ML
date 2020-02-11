@@ -56,7 +56,7 @@ The detailed schedule is subject to small changes.
 |         | 13.30 - 15.00 | Gradient boosting machine | [sheets gbm](https://katrienantonio.github.io/workshop-ML/sheets/day_2/lecture_sheets_workshop_ML_Day_2.html#gbm)|[script](https://katrienantonio.github.io/workshop-ML/scripts/day_2/3_gbm_xgboost.R)|[solutions](https://katrienantonio.github.io/workshop-ML/scripts/day_2/3_gbm_xgboost_solutions.R)|
 |         | 15.15 - 16.30 | h2o | [sheets h2o](https://katrienantonio.github.io/workshop-ML/sheets/day_2/lecture_sheets_workshop_ML_Day_2.html#h2o)|[script](https://katrienantonio.github.io/workshop-ML/scripts/day_2/4_h2o.R)|[solutions](https://katrienantonio.github.io/workshop-ML/scripts/day_2/4_h2o_solutions.R)|
 | Day 3   | 09.30 - 10.00 | Introduction | [sheets intro](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#introduction) |  |
-|         | 10.00 - 11.00 | Fundamentals | [sheets fundamentals](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#fundamentals)|
+|         | 10.00 - 11.00 | Fundamentals | [sheets fundamentals](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#fundamentals)|[script](https://katrienantonio.github.io/workshop-ML/scripts/day_1/3_machine_learning_foundations.R)|[solutions](https://katrienantonio.github.io/workshop-ML/scripts/day_1/3_machine_learning_foundations_solutions.R)|
 |         | 11.15 - 11.45 | More on fundamentals | [sheets fundamentals](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#fundamentals)|
 |         | 11.45 - 12.30 | Autoencoders | [sheets autoencoders](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#autoencoder)|
 |         | 13.30 - 15.00 | CNNs | [sheets CNNs](https://katrienantonio.github.io/workshop-ML/sheets/day_3/lecture_sheets_workshop_ML_Day_3.html#cnn)|
@@ -81,6 +81,8 @@ Topics include:
 - ensembles of trees (bagging, random forests, gradient boosting machine, XGboost)
 - ML interpretability tools (variable importance, PDP, ICE, and more)
 - H2O
+
+Download lecture sheets in [pdf](https://katrienantonio.github.io/workshop-ML/sheets/day_2/lecture_sheets_workshop_ML_Day_2.pdf). 
 
 ##### Day 3: Deep learning methods
 

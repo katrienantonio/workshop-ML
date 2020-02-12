@@ -450,7 +450,7 @@ In our example, the input layer consists of 784 (=28 x 28) nodes.
 # The output layer
 &lt;br&gt;
 
-The output layer in our example will consist of 10 nodes (1 per digit). &lt;br&gt;
+The output layer in our first example will consist of 10 nodes (1 per digit). &lt;br&gt;
 
 The values of these nodes will sum to one, such that we can interpret the outcomes as .hi-pink[probabilities].
 
@@ -528,6 +528,26 @@ Set the number of nodes in this hidden layer.
 ]
 
 ---
+# Hidden layer (cont.)
+
+.pull-left[
+
+```r
+model &lt;- 
+  keras_model_sequential() %&gt;%
+  layer_dense(units = 16, 
+              input_shape = c(784)) %&gt;% 
+* layer_dense(units = 10)
+```
+
+]
+
+.pull-right[
+* The second `layer_dense` adds the output player with 10 nodes.
+
+]
+
+---
 # Connecting the dots
 
 .pull-left[
@@ -590,8 +610,8 @@ Many activation functions are available:
 * Simple derivative (fast calibration).
 * Not used in the output layer.
 
-&lt;img src="Images/neural_networks_unnamed-chunk-31-1.png" width="300" height="200" style="display: block; margin: auto;" /&gt;
-$$ f(x) = \max(x, 0)$$
+&lt;img src="Images/neural_networks_unnamed-chunk-32-1.png" width="300" height="200" style="display: block; margin: auto;" /&gt;
+$$ f(z) = \max(z, 0)$$
 ]
 ---
 # Connecting the dots (cont.)
@@ -609,8 +629,8 @@ Many activation functions are available:
 .pull-right[
 * Only used in the output layer.
 
-&lt;img src="Images/neural_networks_unnamed-chunk-32-1.png" width="300" height="200" style="display: block; margin: auto;" /&gt;
-$$ f(x) = x$$
+&lt;img src="Images/neural_networks_unnamed-chunk-33-1.png" width="300" height="200" style="display: block; margin: auto;" /&gt;
+$$ f(z) = z$$
 ]
 ---
 
@@ -631,8 +651,8 @@ Many activation functions are available:
 * Transform `\(z\)` to `\((0, 1)\)`.
 * Focus on values around zero.
 
-&lt;img src="Images/neural_networks_unnamed-chunk-33-1.png" width="300" height="200" style="display: block; margin: auto;" /&gt;
-$$ f(x) = \frac{1}{(1+e^{-x})}$$
+&lt;img src="Images/neural_networks_unnamed-chunk-34-1.png" width="300" height="200" style="display: block; margin: auto;" /&gt;
+$$ f(z) = \frac{1}{(1+e^{-z})}$$
 ]
 ---
 # Connecting the dots (cont.)
@@ -703,9 +723,7 @@ We can visualize these weights in a (28x28) image:
 
 .pull-right[
 For the image on the left, the weighted sum is maximal when there is a horizontal line at the top:
-`$$z = b + W \cdot X.$$`
-&lt;br&gt;
-Since there are more positive weights, the weighted sum is mostly positive for randomly generated data. A negative bias reduces the probability of activing a node.
+`$$z = b + w \cdot w.$$`
 ]
 
 ---
@@ -848,9 +866,9 @@ model &lt;- model %&gt;%
     metrics = c('accuracy'))
 ```
 
-* `k_mean` is the keras implementations of `mean` that take a tensor as input.
+* `k_mean` is the keras implementation of `mean` that take a tensor as input.
+
 * `axis = 2` calculates the mean over the different output nodes.
-* `axis = 1` would have calculated the mean over the different records in the input dataset.
 ]
 
 ---
@@ -878,10 +896,10 @@ Popular choices are:
 .pull-right[
 All optimizers more or less do gradient descent
 
-$$y_i = y_i - \delta \cdot \frac{\partial \mathcal{L}}{\partial y_i}, $$
-where `\(\mathcal{L}\)` is the loss function and `\(y_i\)` is one of the many tuning parameters.
+$$w_i = w_i - \delta \cdot \frac{\partial \mathcal{L}}{\partial w_i}, $$
+where `\(\mathcal{L}\)` is the loss function and `\(w_i\)` is one of the many tuning parameters and `\(\delta\)` is the learning rate.
 
-The gradient, `\(\frac{\partial \mathcal{L}}{\partial y_i}\)`, is calculated using a technique called backpropagation, i.e. a fancy name for the chain rule from mathematics.
+The gradient, `\(\frac{\partial \mathcal{L}}{\partial w_i}\)`, is calculated using a technique called backpropagation, i.e. a fancy name for the chain rule from mathematics.
 ]
 
 ---
@@ -957,7 +975,7 @@ As discussed, any .KULbginline[loss function] can be used as a .KULbginline[metr
 
 &lt;br&gt;
 
-In the case of the MNIST dataset, we search for a model with a high .KULbginline[accuracy].
+In the case of the MNIST dataset, we search for a model with a high .KULbginline[accuracy], i.e. the likelihood that the model assigns the highest probabililty to the correct output node.
 
 .hi-pink[Q]: Why can we not use .KULbginline[accuracy] as our loss function?
 ]
@@ -1005,13 +1023,13 @@ model %&gt;%
       validation_split = 0.2)
 ```
 
-Parameter updates are calculated based on small subsets with `batch_size` elements. An `epoch` is one iteration of the algorithm over the full dataset. 
+Parameter updates are calculated based on small subsets of the training data with `batch_size` elements. An `epoch` is one iteration of the algorithm over the full dataset. 
 
 ]
 
 .pull-right[
   &lt;img src="Images/neural_network_epoch.gif" width="400" height="300" style="display: block; margin: auto;" /&gt;
-Source: [Bradley Boehmke, Deep Learning with Keras and TensorFlow in R](https://github.com/rstudio-conf-2020/dl-keras-tf)
+.right[Source: [Bradley Boehmke](https://github.com/rstudio-conf-2020/dl-keras-tf)]
 ]
 
 ---
@@ -1056,21 +1074,21 @@ class: clear
 &lt;br&gt;
 .KULbginline[Adding some new layer types:] 
 
-* `layer_gaussian_noise`: ddds gaussian noise `\(\mathcal{N}(0, \texttt{stddev})\)` to the nodes when training the model. This reduces the probability of overfitting.
+* [`layer_gaussian_noise`](https://keras.io/layers/noise/): adds gaussian noise N(0, stddev) to the nodes when training the model. This reduces the probability of overfitting.
 
 ```r
 model &lt;- model %&gt;%
   layer_gaussian_noise(stddev)
 ```
 
-* `layer_dropout`: Sets a fraction `rate` of the input units to zero. This reduces the probability of overfitting.
+* [`layer_dropout`](https://keras.io/layers/core/): Sets a fraction `rate` of the input units to zero. This reduces the probability of overfitting.
 
 ```r
 model &lt;- model %&gt;%
   layer_dropout(rate)
 ```
 
-* `layer_batch_normalization`: centers and scales the values of each node in the previous layer.
+* [`layer_batch_normalization`](https://keras.io/layers/normalization/): centers and scales the values of each node in the previous layer.
 
 ```r
 model &lt;- model %&gt;%
@@ -1200,7 +1218,7 @@ random &lt;- matrix(runif(28^2), nrow = 1)
 plot_image(random[1, ])
 ```
 
-&lt;img src="Images/neural_networks_unnamed-chunk-63-1.png" width="360" height="360" style="display: block; margin: auto;" /&gt;
+&lt;img src="Images/neural_networks_unnamed-chunk-64-1.png" width="360" height="360" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -1241,7 +1259,7 @@ Visualization of the calibrated weights for the 16 nodes in the first hidden lay
 ]
 
 ---
-# Summary(fundamentals)
+# Summary of the fundamentals
 
 .pull-left[
 * Define neural networks .KULbginline[sequentially] in {keras}
@@ -1325,7 +1343,7 @@ The following steps guide you in .KULbginline[constructing] and .KULbginline[tra
   * Layer 4: Hidden layer (128 nodes)
   * Layer 5: Output layer (784 nodes)
 
-* Choose an appropriate activation functions for each layer:
+* Choose an appropriate activation function for each layer:
   * identity
   * ReLU
   * sigmoid
@@ -1350,7 +1368,7 @@ class: clear
 
 * Fit the model on the MNIST data in 10 epochs.
 
-* Expirement with adding other layer types to the model:
+* Experiment with adding other layer types to the model:
   * layer_gaussian_noise(stddev)
   * layer_dropout(rate)
   * layer_batch_normalization()
@@ -1529,7 +1547,7 @@ This approach
 
 * requires a large number of parameters/weights as each node in the first hidden layer is connected to all nodes in the input layer.
 
-.KULbginline[Convolutional layers] allow to handle dimensional data, **without** flattening.
+.KULbginline[Convolutional layers] allow to handle dimensional data, .hi-pink[without] flattening.
 
 ]
 
@@ -1557,6 +1575,7 @@ The weights in a 2d convolutional layer are structured in a small image, called 
 We slide the kernel over the input image and compute matrix multiplications between the selected part of the image and the kernel.
 
 &lt;img src="Images/neural_network_convolution_op2.png" width="400" height="250" style="display: block; margin: auto;" /&gt;
+
 .right[Source: [Bradley Boehmke](https://github.com/rstudio-conf-2020/dl-keras-tf)]
 ]
 
@@ -1578,7 +1597,7 @@ The weights in a 2d convolutional layer are structured in a small image, called 
 We slide the kernel over the input image and compute matrix multiplications between the selected part of the image and the kernel.
 
 &lt;img src="Images/neural_network_convolution_op3.gif" width="400" height="250" style="display: block; margin: auto;" /&gt;
-Source: [Bradley Boehmke](https://github.com/rstudio-conf-2020/dl-keras-tf)
+.right[Source: [Bradley Boehmke](https://github.com/rstudio-conf-2020/dl-keras-tf)]
 ]
 
 ---
@@ -1600,14 +1619,14 @@ A useful feature for classifying the number four is the presence of straight, ve
 ---
 # Convolutional layers (cont.)
 
-2d convolutional layers can **detect** the same, **local feature** **anywhere** in the image.
+2d convolutional layers can .hi-pink[detect] the same, .hi-pink[local featur anywhere] in the image.
 
 .pull-left[
-A useful feature for classifying the number four is the presence of straight, vertical lines.
+A useful feature for classifying the number four is the presence of straight, .hi-pink[vertical lines].
 
-.hi-pink[Q]: How should the kernel look to detect this feature?
+.hi-pink[Q]: How should the .hi-pink[kernel] look to detect this feature?
 
-&lt;img src="Images/neural_networks_unnamed-chunk-82-1.png" width="200" height="200" style="display: block; margin: auto;" /&gt;
+&lt;img src="Images/neural_networks_unnamed-chunk-83-1.png" width="200" height="200" style="display: block; margin: auto;" /&gt;
 
 
 ]
@@ -1683,7 +1702,7 @@ layer_max_pooling_2d(pool_size = c(2, 2),
 
 * `pool_size = c(2, 2)`: 
 
-Aggregate blocks of 2x2
+Pool blocks of 2x2
 
 * `strides = c(2, 2)`:
 
@@ -1750,7 +1769,7 @@ input_conv &lt;- mnist$train$x / 255
 input_conv &lt;- k_expand_dims(input_conv, axis = 4)
 ```
 
-Once you are finished with the performance of your model, you can plot some images that were misclassified by your model.
+Once you are satisfied with the performance of your model, you can plot some images that were misclassified by your model.
 ]
 
 ---
@@ -1832,7 +1851,7 @@ random_conv &lt;- k_expand_dims(random_conv, axis = 4)
 plot_image(random)
 ```
 
-&lt;img src="Images/neural_networks_unnamed-chunk-100-1.png" width="300" height="300" style="display: block; margin: auto;" /&gt;
+&lt;img src="Images/neural_networks_unnamed-chunk-101-1.png" width="300" height="300" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
@@ -1955,8 +1974,8 @@ We now reconstruct this model as a neural network:
 Formula |  GLM  | Neural network
 ------------- | -------------
 `\(\color{#FFA500}{Y}\)`   | response | output node
-&amp;nbsp; `\(\texttt{Poisson}\)` &amp;nbsp; | &amp;nbsp; distribution &amp;nbsp; | loss function
-`\(\exp\)`            | inverse link function | &amp;nbsp; activation function &amp;nbsp;
+&amp;nbsp; Poisson &amp;nbsp; | &amp;nbsp; distribution &amp;nbsp; | loss function
+exp            | inverse link function | &amp;nbsp; activation function &amp;nbsp;
 `\(\color{#e64173}{x}\)`  | predictors | input nodes
 `\(\color{#20B2AA}{\beta}\)` | fitted effect | weights
 ]
@@ -2196,10 +2215,10 @@ class: clear
 We have shown that a Poisson GLM can be implemented as a neural network.
 &lt;br&gt;
 
-1. Can you adapt this code to replicate a binomial GLM with a logit link function.
+1. Can you adapt this code to replicate a binomial GLM with a logit link function.&lt;br&gt;
 &lt;i class="fas fa-lightbulb", style="color:#116E8A"&gt;&lt;/i&gt; The `sigmoid` activation function is the inverse of the logit link function.
 
-2. Calibrate the model defined in 1 on the outcome variable (nclaims &gt; 0), i.e.~modelling no claim versus having at least one claim. Add accuracy as a metric in your model.
+2. Calibrate the model defined in 1 on the outcome variable (nclaims &gt; 0), i.e. modelling no claim versus having at least one claim. Add accuracy as a metric in your model.
 
 3. Compare your fitted neural network with a glm model.
 ]
@@ -2352,7 +2371,7 @@ input &lt;- matrix(mtpl_train %&gt;% pull(ageph),
                 ncol = 1)
 
 claim_count_model &lt;- keras_model_sequential() %&gt;%
-* layer_batch_normalization(input_shape = c(1)) %&gt;%
+* layer_batch_normalization(input_shape = 1) %&gt;%
 * layer_dense(units = 5, activation = 'relu') %&gt;%
   layer_dense(units = 1, 
               activation = 'exponential', 
@@ -2365,7 +2384,7 @@ claim_count_model &lt;- keras_model_sequential() %&gt;%
 
 .pull-right[
 `ageph` is added to the input matrix. &lt;br&gt;
-We remove the constant one from the input matrix and instead set `bias = TRUE`. 
+We remove the constant one from the input matrix and instead set `use_bias = TRUE`. 
 
 The first layer in the network is `layer_batch_normalization`. &lt;br&gt;
 This layer centers and scales the input variables, conform the preprocessing steps discussed on Day 1. Centering and scaling helps the model to faster converge.
@@ -2480,7 +2499,7 @@ class: clear
 
 * Write a recipe for preparing the input data set. &lt;br&gt;Check the [reference page](https://tidymodels.github.io/recipes/reference/index.html) for inspiration.
 
-* Your recipe should atleast contain the following steps:&lt;br&gt;
+* Your recipe should contain the following steps:&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;#9675; Remove the variables: id, nclaims, amount, exp, town and pc.&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;#9675; Normalize the data.&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;#9675; Take the logarithm of avg.&lt;br&gt;
@@ -2542,6 +2561,13 @@ Split the data into a training and test dataset.
 
 ```r
 require(rsample)
+```
+
+```
+## Loading required package: rsample
+```
+
+```r
 set.seed(1)
 data_split &lt;- initial_split(mtpl)
 mtpl_train &lt;- training(data_split)
@@ -2584,7 +2610,7 @@ gamma_loss &lt;- function(y_true, y_pred) {
 ]
 
 .pull-right[
-![](Images/neural_networks_unnamed-chunk-133-1.png)&lt;!-- --&gt;
+![](Images/neural_networks_unnamed-chunk-134-1.png)&lt;!-- --&gt;
 
 ]
 

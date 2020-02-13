@@ -85,7 +85,7 @@ plot_image <- function(data, legend = TRUE) {
   return(figure)
 }
 
-plot_image(input[17, ])
+plot_image(input[1, ])
 
 
 ## ----------------------------------------------------------------------------------------------
@@ -113,7 +113,10 @@ model %>%
       epochs = 20, 
       validation_split = 0.2)
 
-## ----Your Turn ends here-----------------------------------------------------------------------
+
+sum(category == actual_category) / length(category)
+
+## --Your Turn ends here-----------------------------------------------------------------------
 ## ----------------------------------------------------------------------------------------------
 
 ## ----------------------------------------------------------------------------------------------
@@ -178,6 +181,7 @@ model <- encoder %>%
   compile(loss = 'binary_crossentropy',
           optimize = optimizer_rmsprop(),
           metrics = c('mse'))
+
 model %>%
   fit(input, 
       input, 
@@ -192,8 +196,8 @@ model %>%
 
 # ---- Evaluating model performance -------------------------------------------------------------
 
-result <- predict(model, input[1, , drop = FALSE])
-plot_image(input[1, ]) # the original image
+result <- predict(model, input[9, , drop = FALSE])
+plot_image(input[9, ]) # the original image
 plot_image(result[1, ]) # the reconstruction of the model
 
 # test on random data
@@ -204,6 +208,12 @@ grid.arrange(
   nrow = 1)
 
 #### ---- Convolutional neural networks (CNN) ---------------------------------------------------
+
+model <- keras_model_sequential() %>%
+  layer_conv_2d(filters = 8,
+                kernel_size = c(3, 3), 
+                strides = c(1, 1),
+                input_shape = c(28, 28, 1))
 
 # ---- Illustraing the function of a kernel -----------------------------------------------------
 
@@ -240,6 +250,8 @@ ggplot(df, aes(x, y)) +
 ## ----------------------------------------------------------------------------------------------
 ## ----Your Turn---------------------------------------------------------------------------------
 ## Fit and evaluate a convolutional neural network
+
+res <- array(mnist$train$x, dim=c(60000, 28, 28, 1))
 
 # data preparation
 input_conv <- mnist$train$x / 255

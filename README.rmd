@@ -94,6 +94,12 @@ Topics include:
 - putting it all together: case studies
 - wrap up.
 
+## After the workshop: want to more know?
+
+An excellent collection of tutorials, books, workshops, events is available via
+
+[http://www.actuarialdatascience.org](http://www.actuarialdatascience.org)
+
 ## Prework
 
 <p align="justify">The workshop requires a basic understanding of R. A good starting level is the material covered i the [1-Basic](https://github.com/katrienantonio/workshop-R/tree/master/1%20-%20Basic%20R) folder of the [Programming in R](https://github.com/katrienantonio/workshop-R) workshop taught at Nationale Nederlanden in June 2019. From time to time you will also rely on concepts taught in the [2-Advanced](https://github.com/katrienantonio/workshop-R/tree/master/2%20-%20Advanced%20R) folder of the same workshop, including `purrr` and some data handling and visualisation tools. This workshop will provide some review of these topics.</p>

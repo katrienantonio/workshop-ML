@@ -253,6 +253,11 @@ ggplot(df, aes(x, y)) +
 
 res <- array(mnist$train$x, dim=c(60000, 28, 28, 1))
 
+model <- keras_model_sequential() %>%
+  layer_conv_2d(filters = 8, 
+                kernel_size = 3, 
+                input_shape = c(28, 28, 3)) 
+
 # data preparation
 input_conv <- mnist$train$x / 255
 test_input_conv <- mnist$test$x / 255
@@ -317,7 +322,8 @@ mtpl_orig <- read.table('./data/P&Cdata.txt',
                         header = TRUE)
 mtpl_orig <- as_tibble(mtpl_orig)
 mtpl <- mtpl_orig %>%
-  rename_all(function(.name) {.name %>% tolower })
+  rename_all(function(.name) {.name %>% tolower }) %>%
+  rename(expo = exp)
 
 require(rsample)
 data_split <- initial_split(mtpl)
@@ -332,7 +338,7 @@ claim_count_model <- keras_model_sequential() %>%
               input_shape = c(1), 
               use_bias = FALSE) %>%
   compile(loss = 'poisson',
-          optimize = optimizer_rmsprop(),
+          optimize = optimizer_sgd(),
           metrics = c('mse'))
 
 ## more data preparation
@@ -382,9 +388,15 @@ evaluate(claim_count_model,
          output_test, 
          verbose = FALSE)
 
+
+
+
+
 ## ----------------------------------------------------------------------------------------------
 ## ----Your Turn---------------------------------------------------------------------------------
 ## Implement a binomial GLM as a neural network
+
+
 
 claim_model_binair <- keras_model_sequential() %>%
   layer_dense(units = 1, 
@@ -411,7 +423,7 @@ glm_binair <- glm((nclaims > 0) ~ 1,
 # ---- Adding exposure ---------------------------------------------------------------------
 
 glm(nclaims ~ offset(log(expo)) + ageph, family = poisson, data = mtpl_train)
-glm(nclaims / expo ~ ageph, family = poisson, data = mtpl_train, weights = expo)
+glm(nclaims / expo ~ 1, family = poisson, data = mtpl_train, weights = expo)
 
 exposure <- as.numeric(mtpl_train  %>% pull(expo),
                        nrow = nrow(mtpl_train),
@@ -423,7 +435,7 @@ claim_count_model <- keras_model_sequential() %>%
               input_shape = c(1), 
               use_bias = FALSE) %>%
   compile(loss = 'poisson',
-          optimize = optimizer_rmsprop(),
+          optimize = optimizer_sgd(),
           metrics = c('mse')) 
 
 claim_count_model %>%
@@ -449,7 +461,6 @@ input <- matrix(mtpl_train %>% pull(ageph),
                 ncol = 1)
 
 claim_count_model <- keras_model_sequential() %>%
-  layer_batch_normalization(input_shape = c(1)) %>%
   layer_dense(units = 5, activation = 'relu') %>%
   layer_dense(units = 1, 
               activation = 'exponential', 
